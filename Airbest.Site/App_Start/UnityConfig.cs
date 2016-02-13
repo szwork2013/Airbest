@@ -1,6 +1,10 @@
 using System;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Airbest.Site.Models;
+using Airbest.Site.Controllers;
 
 namespace Airbest.Site.App_Start
 {
@@ -37,6 +41,9 @@ namespace Airbest.Site.App_Start
 
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
+            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
         }
     }
 }

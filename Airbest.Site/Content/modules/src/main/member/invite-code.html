@@ -1,0 +1,32 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                    <span>我的邀请码</span>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body view-member-invite-code">
+        <div class="container">
+            <div class="qrcode">
+                <view-qrcode value="ctrl.url"></view-qrcode>
+            </div>
+            <hr />
+            <p class="text-center">
+                邀请码: <b class="num text-primary" style="font-size:larger">{{ctrl.data.code}}</b>
+                &nbsp;<span class="num">{{ ctrl.expireMinutes }}</span>分钟后过期
+            </p>
+            <hr />
+            <button class="btn btn-primary btn-block" ng-click="ctrl.reset()">
+                <i class="iconfont icon-refresh"></i>&nbsp;重新生成
+            </button>
+        </div>
+    </div>
+
+    <view-footer-navi active="member"></view-footer-navi>
+</div>

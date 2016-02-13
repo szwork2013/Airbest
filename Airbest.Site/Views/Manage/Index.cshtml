@@ -1,84 +1,53 @@
-﻿@model Airbest.Site.Models.IndexViewModel
-@{
-    ViewBag.Title = "管理";
+﻿@{
+    Layout = null;
 }
+<!DOCTYPE html>
 
-<h2>@ViewBag.Title。</h2>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app.manage">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div>
-    <h4>更改你的帐户设置</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>密码:</dt>
-        <dd>
-            [
-            @if (Model.HasPassword)
-            {
-                @Html.ActionLink("更改密码", "ChangePassword")
-            }
-            else
-            {
-                @Html.ActionLink("创建", "SetPassword")
-            }
-            ]
-        </dd>
-        <dt>外部登录名:</dt>
-        <dd>
-            @Model.Logins.Count [
-            @Html.ActionLink("管理", "ManageLogins") ]
-        </dd>
-        @*
-            电话号码可以在双因素身份验证系统中用作第二个验证因素。
-             
-             请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文</a>
-                了解有关设置此 ASP.NET 应用程序以支持使用 SMS 进行双因素身份验证的详细信息。
-             
-             在设置了双因素身份验证后，请取消注释以下块
-        *@
-        @*  
-            <dt>电话号码:</dt>
-            <dd>
-                @(Model.PhoneNumber ?? "无") [
-                @if (Model.PhoneNumber != null)
-                {
-                    @Html.ActionLink("更改", "AddPhoneNumber")
-                    @: &nbsp;|&nbsp;
-                    @Html.ActionLink("删除", "RemovePhoneNumber")
-                }
-                else
-                {
-                    @Html.ActionLink("添加", "AddPhoneNumber")
-                }
-                ]
-            </dd>
-        *@
-        <dt>双因素身份验证:</dt>
-        <dd>
-            <p>
-                没有配置双因素身份验证提供程序。有关设置此 ASP.NET 应用程序
-                以支持双因素身份验证的详细信息，请参阅<a href="http://go.microsoft.com/fwlink/?LinkId=403804">此文</a>。
-            </p>
-            @*@if (Model.TwoFactor)
-                {
-                    using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>已启用
-                        <input type="submit" value="禁用" class="btn btn-link" />
-                        </text>
-                    }
-                }
-                else
-                {
-                    using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                    {
-                        @Html.AntiForgeryToken()
-                        <text>已禁用
-                        <input type="submit" value="启用" class="btn btn-link" />
-                        </text>
-                    }
-                }*@
-        </dd>
-    </dl>
-</div>
+    <base href="/manage/" />
+    <title ng-bind="pageTitle || '管理中心'">管理中心</title>
+    <link href="//at.alicdn.com/t/font_1453520348_2640128.css" rel="stylesheet" />
+    <link href="~/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/content/themes/dist/manage.min.css" rel="stylesheet" />
+</head>
+<body>
+    @*<div id="ui-lock-mask" class="ui-lock-mask active">
+        <div class="inner">
+            <i class="iconfont icon-loading fa-spin"></i>
+            <span class="text">正在加载, 请稍候</span>
+        </div>
+    </div>*@
+
+    <!-- 视图 -->
+    1
+    <div id="app-view" ng-view="main" class="app-view"></div>
+
+    <script>
+        window.buildNumber = "20160205_17";
+    </script>
+
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
+    <script src="//apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="//apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+
+    <script src="~/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="~/bower_components/plupload/js/moxie.min.js"></script>
+    <script src="~/bower_components/plupload/js/plupload.min.js"></script>
+    <script src="~/bower_components/Slides-SlidesJS-3/source/jquery.slides.min.js"></script>
+    <script src="~/bower_components/iscroll/build/iscroll.js"></script>
+
+    <script src="~/Scripts/plupload-angular-directive.js?v=20160205_17"></script>
+    <script src="~/Content/modules/dist/app.js?v=20160205_17"></script>
+</body>
+</html>

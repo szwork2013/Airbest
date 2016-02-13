@@ -1,0 +1,13 @@
+﻿
+<div class="view-unslider" style="position:relative;z-index:0;" ng-class="{ 'show-desc': showDesc, 'show-number': showNumber }">
+    <div class="unslider-win sub-logo">
+        <a ng-href="{{item.linkUrl}}" ng-repeat="item in ctrl.items" title="{{item.shortDesc}}">
+            <img ng-src="{{item.imageUrl}}" alt="" />
+            <div class="desc-wrapper">
+                <p class="desc">
+                    <i class="iconfont">&#xe662;</i>&nbsp;{{item.name}}
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

@@ -5,9 +5,7 @@
 
 declare var QRCode: any;
 declare var buildNumber: string;
-
 declare var BMAP_AK: string;
-declare var DEBUG_POSITION: app.bmap.IPoint;
 
 /**
  * 百度地图

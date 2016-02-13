@@ -1,0 +1,35 @@
+﻿
+
+
+<div class="view view-flex">
+    <dvi iscroll name="iscroll" class="view-body" auto-refresh scroll-bottom="ctrl.load()">
+        <div class="container no-padding">
+            <div class="img-block">
+                <img src="/Content/themes/res/banners/banner.product.jpg" />
+            </div>
+
+            <div class="alert text-center" ng-if="ctrl.products && !ctrl.products.length">
+                ~~ 还没有农产品发布 ~~
+            </div>
+
+            <!-- 新闻列表 -->
+            <div class="product-list" ng-if="ctrl.products && ctrl.products.length">
+                <ol class="flow">
+                    <li class="it" ng-repeat="item in ctrl.products">
+                        <a class="it" href="product/details?id={{item.id}}">
+                            <div class="image img-blone">
+                                <img ng-src="{{item.imageUrl}}" alt="" />
+                            </div>
+                            <p class="name">{{item.name}}</p>
+                            <p class="town">{{item.town.name}}</p>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+            <!-- 新闻列表 end -->
+        </div>
+    </dvi>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

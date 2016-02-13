@@ -1,0 +1,42 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                    <span>测试</span>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body">
+        <div class="container">
+            <a href="/a.html" class="btn btn-default btn-block">前往 /a.html</a>
+            <a href="../a.html" class="btn btn-default btn-block">前往 ../a.html</a>
+            <a href="/Content/plupload/PluploadHandler.ashx?_a=upload" class="btn btn-default btn-block">上传接口</a>
+            <a pl-upload pl-model="ctrl.imageUrl" class="btn btn-default btn-block">plupload 测试</a>
+            <a pl-upload pl-model="ctrl.imageUrl" pl-url="/api/utils/plupload" class="btn btn-default btn-block">plupload 测试新</a>
+
+            <h4>User Agent</h4>
+            <p>{{ctrl.userAgent}}</p>
+
+            <form class="form" action="/PluploadHandler.ashx?_a=upload" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <div class="form-group form-group-block">
+                        <input type="file" class="form-control" name="file1" />
+                        <input type="text" class="form-control" value="111" name="b" />
+                    </div>
+                    <div class="form-group form-group-footer">
+                        <button type="submit" class="btn btn-default btn-block">上传</button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <div class="image">
+                <img ng-src="{{ctrl.imageUrl}}" alt="" />
+            </div>
+        </div>
+    </div>
+</div> 

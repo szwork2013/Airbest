@@ -1,0 +1,21 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header view-title">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                    <span ng-bind="ctrl.title"></span>
+                </a>
+            </li>
+        </ol>
+    </div>
+
+    <div class="view-body">
+        <div class="container">
+            <div class="rt-content" ng-if="ctrl.content" ng-bind-html="ctrl.content"></div>
+        </div>
+    </div>
+
+    <view-footer-navi></view-footer-navi>
+</div>

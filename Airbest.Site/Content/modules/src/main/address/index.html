@@ -1,0 +1,22 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                    <span>收获地址</span>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body">
+        <div class="container">
+            <p ng-if="ctrl.address">已选择: {{ctrl.address}}</p>
+            <a href="address/from-map" class="btn btn-default btn-block">
+                <i class="iconfont"></i>&nbsp;选择地址
+            </a>
+        </div>
+    </div>
+</div>

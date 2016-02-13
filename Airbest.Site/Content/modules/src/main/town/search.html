@@ -1,0 +1,66 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title-search">
+        <ol class="container">
+            <li>
+                <a ng-href="">
+                    <i class="iconfont">&#xe60a;</i>
+                </a>
+            </li>
+            <li class="body">
+                <div>
+                    <input class="form-control" type="text" ng-model="ctrl.keywords" placeholder="请在这里查找您的村庄..." />
+                </div>
+            </li>
+        </ol>
+    </nav>
+
+    <div iscroll class="view-body" auto-refresh>
+        <div class="container no-padding iscroll-flow">
+            <div class="alert text-center" ng-if="!ctrl.keywords">
+                请输入您想查找的村庄
+            </div>
+
+            <div class="alert text-center" ng-if="ctrl.keywords && !ctrl.loading && !ctrl.towns.length">
+                <p>没有找到和<span class="red">{{ctrl.keywords}}</span>有关的结果</p>
+                <p>可能您的输入不正确<br />或者该村尚未入驻《天下村》平台</p>
+                <hr />
+
+                <!-- if 当前未登录, 显示一个注册提示按钮 -->
+                <a ng-if="ctrl.member == null" ng-href="passport/register-master" class="btn btn-primary">
+                    <i class="iconfont">&#xe61a;</i> 立刻注册会员
+                </a>
+            </div>
+
+            <div class="view-town-list" ng-if="ctrl.keywords && !ctrl.loading && ctrl.towns.length">
+                <ul>
+                    <li ng-repeat="item in ctrl.towns">
+                        <a class="block" ng-click="ctrl.go(item)">
+                            <div class="image img-block">
+                                <div class="img-blone">
+                                    <img ng-src="{{item.imageUrl}}" alt="" />
+                                </div>
+                            </div>
+                            <div class="town-info-wrapper flex-cell">
+                                <div class="it-head">
+                                    <i class="iconfont">&#xe62b;</i>
+                                </div>
+                                <div class="it-body">
+                                    <p class="name clearfix">
+                                        {{item.name}}
+                                        <span class="master pull-right" ng-if="item.master != null">站长: {{item.master.name}}</span>
+                                        <span class="master pull-right" ng-if="item.master == null">暂无站长</span>
+                                    </p>
+                                    <p class="area">{{item.fullName}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

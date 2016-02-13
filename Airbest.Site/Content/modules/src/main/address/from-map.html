@@ -1,0 +1,54 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title-search">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                </a>
+            </li>
+            <li class="body">
+                <a href="address/from-input">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="ctrl.address" />
+                        <div class="input-group-btn invisible">
+                            <div class="btn btn-default">
+                                <i class="iconfont">&#xe65a;</i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body view-address-map">
+        <div class="container no-padding">
+            <!-- 地图 -->
+            <div id="bmap-wrapper" class="bmap-wrapper" ng-init="ctrl.initMap()"></div>
+            <!-- 地图 end -->
+
+            <!-- 候选项列表 -->
+            <div class="options-wrapper">
+                <div class="address-option-list condensed">
+                    <a class="it" ng-repeat="item in ctrl.options"
+                       ng-click="ctrl.submit(item.name)" ng-class="{active: $index == 0 }">
+                        <div class="media">
+                            <div class="media-left">
+                                <i class="iconfont">&#xe62b;</i>
+                            </div>
+                            <div class="media-body">
+                                <p class="name">{{item.name}}</p>
+                                <p class="address">{{item.addr}}</p>
+                            </div>
+                            <div class="media-right">
+                                <p class="diff nowrap">{{item.city}}{{item.district}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <!-- 候选项列表 end -->
+        </div>
+    </div>
+</div>

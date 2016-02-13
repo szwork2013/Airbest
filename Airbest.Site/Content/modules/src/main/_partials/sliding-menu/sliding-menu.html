@@ -1,0 +1,102 @@
+﻿
+<div class="view-sliding-menu">
+    <a href="" class="menu-toggle">
+        <i class="iconfont"></i>
+    </a>
+    <div class="menu-mask" toggle-sliding-menu></div>
+    <div class="menu-content">
+        <a class="signed-member" ng-href="member/profile">
+            <div class="member-head-wrapper">
+                <div class="member-head">
+                    <div class="img-blone">
+                        <img src="{{ctrl.member.headUrl}}" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="member-info-wrapper">
+                <p>{{ctrl.member.nick}} {{ctrl.town.name}}</p>
+            </div>
+        </a>
+        <div class="membebr-navi">
+            <ul class="items">
+                <li>
+                    <a ng-href="app">
+                        <i class="iconfont" style="color: green">&#xe607;</i>
+                        首页
+                    </a>
+                </li>
+                <li>
+                    <a class="clearfix" ng-href="town/private/?id={{ctrl.town.id}}">
+                        <i class="iconfont" style="color:#ff6a00">&#xe628;</i>
+                        {{ctrl.town.name}}
+                    </a>
+                </li>
+                <li>
+                    <a class="clearfix" ng-href="mail-group/town?id={{ctrl.town.id}}">
+                        <i class="iconfont" style="color: #ff0000">&#xe67b;</i>&nbsp;本村村论坛
+                        <i class="iconfont pull-right red" style="font-size:24px;margin-right:0;">&#xe61f;</i>
+                    </a>
+                </li>
+                <li>
+                    <a ng-href="news/?townId={{ctrl.town.id}}">
+                        <i class="iconfont" style="color: blue">&#xe69a;</i>&nbsp;本村新闻
+                    </a>
+                </li>
+                <li>
+                    <a ng-href="product/?townId={{ctrl.town.id}}">
+                        <i class="iconfont" style="color: green">&#xe665;</i>&nbsp;本村农产品
+                    </a>
+                </li>
+                <li>
+                    <a ng-href="album/details?albumId={{ctrl.town.id}}">
+                        <i class="iconfont" style="color: purple">&#xe662;</i>&nbsp;本村风貌
+                    </a>
+                </li>
+
+                <!--<li>
+            <a ng-href="/">
+                <i class="iconfont"></i>&nbsp;微信绑定
+            </a>
+        </li>-->
+                <li class="divider" ng-if="ctrl.isMaster"></li>
+                <li ng-if="ctrl.isMaster">
+                    <a ng-href="mail-group/town?id={{ctrl.town.id}}&replyStatus=unreply" class="clearfix">
+                        <i class="iconfont" style="color:orange">&#xe631;</i>&nbsp;留言回复
+                        <small class="pull-right light">
+                            <span class="badge">{{ctrl.unreplyMessage}}</span>
+                        </small>
+                    </a>
+                </li>
+                <li ng-if="ctrl.isMaster">
+                    <a ng-href="member/album/edit?townId={{ctrl.town.id}}" class="clearfix">
+                        <i class="iconfont" style="color:#d906f1">&#xe655;</i>&nbsp;发布本村风貌
+                        <small class="pull-right light">站长</small>
+                    </a>
+                </li>
+                <li ng-if="ctrl.isMaster">
+                    <a ng-href="member/news/edit?townId={{ctrl.town.id}}" class="clearfix">
+                        <i class="iconfont" style="color: blue">&#xe655;</i>&nbsp;发布本村新闻
+                        <small class="pull-right light">站长</small>
+                    </a>
+                </li>
+                <li ng-if="ctrl.isMaster">
+                    <a ng-href="member/product/edit?townId={{ctrl.town.id}}" class="clearfix">
+                        <i class="iconfont" style="color: green">&#xe655;</i>&nbsp;发布本村农产品
+                        <small class="pull-right light">站长</small>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a ng-href="member/change-password">
+                        <i class="iconfont" style="color:#000">&#xe657;</i>&nbsp;修改密码
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="ctrl.signOut()">
+                        <i class="iconfont" style="color:#c00">&#xe641;</i>&nbsp;退出登录
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

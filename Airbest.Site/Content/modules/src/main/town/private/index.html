@@ -1,0 +1,115 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header">
+    </div>
+    <div class="view-body">
+        <div class="container no-padding">
+
+            <!-- 轮换图 -->
+            <div class="town-photos">
+                <div class="img-blone" style="padding-top:64.28571428571429%">
+                    <div class="inner" ng-if="ctrl.photos && ctrl.photos.length">
+                        <view-unslider width="700" height="450" items="ctrl.photos" autoplay="true"></view-unslider>
+                    </div>
+                </div>
+            </div>
+            <!-- 轮换图 end -->
+
+            <div class="view-town-private">
+                <!--导航菜单-->
+                <div class="town-navi-wrapper">
+                    <ol class="cell-group">
+                        <li class="cell">
+                            <a ng-href="news?townId={{ctrl.town.id}}">
+                                <div class="icon-wrapper" style="background-color:#f00">
+                                    <i class="iconfont">&#xe69a;</i>
+                                </div>
+                                新闻
+                            </a>
+                        </li>
+                        <li class="cell">
+                            <a ng-href="product?townId={{ctrl.town.id}}">
+                                <div class="icon-wrapper" style="background-color:orange">
+                                    <i class="iconfont">&#xe665;</i>
+                                </div>
+                                农产品
+                            </a>
+                        </li>
+                        <li class="cell">
+                            <a ng-href="mail-group/town?id={{ctrl.town.id}}">
+                                <div class="icon-wrapper" style="background-color:#14829b">
+                                    <i class="iconfont">&#xe67b;</i>
+                                </div>
+                                论坛
+                            </a>
+                        </li>
+                        <li class="cell">
+                            <a ng-href="album/details?albumId={{ctrl.town.id}}">
+                                <div class="icon-wrapper" style="background-color:green">
+                                    <i class="iconfont">&#xe662;</i>
+                                </div>
+                                风貌
+                            </a>
+                        </li>
+                        <li class="cell">
+                            <a toggle-sliding-menu>
+                                <div class="icon-wrapper" style="background-color:#6769e5">
+                                    <i class="iconfont">&#xe671;</i>
+                                </div>
+                                我
+                            </a>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="sec" ng-if="!ctrl.town.master && ctrl.member.townId == ctrl.town.id">
+                    <button type="button" class="btn btn-primary btn-block" ng-click="ctrl.applyForMaster()">申请成为{{ctrl.town.name}}站长</button>
+                </div>
+
+                <div ng-if="ctrl.town.master">
+
+                    <!-- 村领导 -->
+                    <div class="sec town-public-officers-wrapper" ng-if="ctrl.town.publicOfficers.length">
+                        <div class="it" ng-repeat="item in ctrl.town.publicOfficers | limitTo:2">
+                            <div class="photo-wrapper">
+                                <img ng-src="{{item.headUrl}}" alt="" class="photo" />
+                            </div>
+                            <div class="info-wrapper">
+                                <p class="name">姓名: {{item.name}}</p>
+                                <p class="officer">职务: {{item.officer}}</p>
+                                <p class="tel">{{item.tel}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 鉴桥村简介 -->
+                    <div class="sec town-content-wrapper">
+                        <h4 class="town-name text-center">
+                            <i class="iconfont"></i> {{ctrl.town.name}}简介
+                        </h4>
+                        <div class="town-content">
+                            <div class="rt-content styled" ng-bind-html="ctrl.town.content"></div>
+                        </div>
+                    </div>
+
+                    <!-- 站长信息 -->
+                    <div class="sec town-master-wrapper">
+                        <div class="master-head">
+                            <div class="img-block">
+                                <img ng-src="{{ctrl.town.master.headUrl}}" alt="" />
+                            </div>
+                        </div>
+                        <h4 class="master-name clearfix">
+                            站长: {{ctrl.town.master.name}}
+                            电话: <small class="pull-right">{{ctrl.town.master.tel}}</small>
+                        </h4>
+                        <div class="rt-content styled" ng-bind-html="ctrl.town.desc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

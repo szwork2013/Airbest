@@ -1,0 +1,102 @@
+﻿
+<div class="view view-flex">
+    <div class="view-body">
+        <div class="container no-padding">
+            <form name="form" class="form view-form-register" ng-submit="form.$valid && !form.$pending && ctrl.submit(form)" novalidate>
+
+                <div class="form-group form-group-hr"
+                     ng-class="{ 'has-error': form.townAreaId.$invalid }">
+                    <div class="group-label">
+                        <i class="iconfont">&#xe62b;</i>&nbsp;入驻村
+                    </div>
+                    <div class="group-content">
+                        <input class="hidden" type="text" name="townAreaId" required ng-model="ctrl.model.townAreaId" validator-town-area-not-exists />
+                        <a ng-href="pick-area?returnUrl={{ctrl.encodedUrl}}" class="form-control">{{ctrl.townAreaName || "点击选择" }}</a>
+                        <div class="errmsg-block" ng-messages="form.townAreaId.$error">
+                            <p ng-message="townAreaNotExists">该村已经入驻了</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-hr"
+                     ng-class="{ 'has-error': form.userName.$invalid }">
+                    <div class="group-label">
+                        <i class="iconfont icon-phone"></i>&nbsp;手机
+                    </div>
+                    <div class="group-content">
+                        <input class="form-control" placeholder="必填" type="tel" name="userName"
+                               required ng-model="ctrl.model.userName" pattern="\d{11}" validator-user-name-not-exists autocomplete="username" />
+                        <div class="errmsg-block" ng-messages="form.userName.$error">
+                            <p ng-message="userNameNotExists">该号码已经注册过, 不能使用</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-hr"
+                     ng-class="{ 'has-error': (form.$submitted || form.verifyCode.$dirty) && form.verifyCode.$invalid }">
+                    <div class="group-label">验证码</div>
+                    <div class="group-content">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="必填" phone="ctrl.model.userName" type="number" name="verifyCode"
+                                   ng-required="false && !ctrl.nosms" 
+                                   ng-model="ctrl.model.verifyCode" pattern="\d{5}" validator-sms-verify />
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="button"
+                                        sms-verify-sender="$sms"
+                                        phone="ctrl.model.userName"
+                                        ng-disabled="form.userName.$invalid || $sms.cd">
+                                    <span ng-if="!$sms.cd">获取</span>
+                                    <span ng-if="$sms.cd">{{$sms.cd}}</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="errmsg-block" ng-messages="form.verifyCode.$error">
+                            <p ng-message="smsVerify">验证码错误</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-hr"
+                     ng-class="{ 'has-error': form.password.$invalid }">
+                    <div class="group-label">密码</div>
+                    <div class="group-content">
+                        <input class="form-control" placeholder="6~20位" type="password" name="password"
+                               required ng-model="ctrl.model.password" pattern="\S{6,20}" />
+                        <div class="errmsg-block" ng-messages="form.password.$error">
+                            <p ng-message="pattern">6~20位, 不能包含空格</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-hr"
+                     ng-class="{ 'has-error': form.passwordRpt.$invalid }">
+                    <div class="group-label">重复密码</div>
+                    <div class="group-content">
+                        <input class="form-control" placeholder="6~20位" type="password" name="passwordRpt"
+                               required ng-model="ctrl.model.passwordRpt" pattern="\S{6,20}" validator-equals="ctrl.model.password" />
+                        <div class="errmsg-block" ng-messages="form.passwordRpt.$error">
+                            <p ng-message="pattern">6~20位, 不能包含空格</p>
+                            <p ng-message="equals">两次输入的密码不相同</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-hr">
+                    <div class="group-label">申请站长</div>
+                    <label for="applyForMaster" class="group-content text-right">
+                        <input id="applyForMaster" type="checkbox" name="applyForMaster" ng-model="ctrl.model.applyForMaster" />
+                    </label>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid || form.$pending"
+                            data-invalid="{{!!form.$invalid}}"
+                            data-pending="{{!!form.$pending}}">
+                        <i class="iconfont icon-squarecheck"></i>&nbsp;注册
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

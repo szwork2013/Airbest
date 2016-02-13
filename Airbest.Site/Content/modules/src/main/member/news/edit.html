@@ -1,0 +1,58 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header"></div>
+    <div class="view-body">
+        <div class="container no-padding">
+
+            <form class="form album-edit-form" name="form" novalidate ng-submit="form.$valid && !form.$pending && ctrl.submit()">
+
+                <!--字段: 标题-->
+                <div class="form-group form-group-block"
+                     ng-class="{ 'has-error': form.$dirty && form.title.$invalid }">
+                    <input class="form-control" type="text" name="title" ng-model="ctrl.model.title" required placeholder="新闻标题, 必填" />
+                </div>
+
+                <!--字段: 日期-->
+                <div class="form-group form-group-block" ng-class="{ 'has-error': form.$dirty && form.date.$invalid }">
+                    <input class="form-control" type="date" name="date" ng-model="ctrl.model.date" required placeholder="日期, 必填" />
+                </div>
+
+                <!--字段: 图片-->
+                <div class="form-group form-group-block form-group-image">
+                    <input class="hidden" type="text" name="imageUrl" ng-model="ctrl.model.imageUrl" />
+
+                    <div class="image-wrapper" ng-if="ctrl.model.imageUrl">
+                        <img class="img-responsive" ng-src="{{ctrl.model.imageUrl}}" toggle-class="liberated" />
+                    </div>
+
+                    <div class="upload-wrapper">
+                        <button type="button" class="btn btn-default"
+                                pl-upload
+                                pl-model="ctrl.model.imageUrl"
+                                on-file-added="ctrl.$ui.lock('正在上传')"
+                                on-file-uploaded="ctrl.$ui.unlock()">
+                            <i class="iconfont">&#xe662;</i> 选择
+                        </button>
+                        <small class="helper" style="color:#888;margin-left:5px;">*上传缩略图 (选填)</small>
+                    </div>
+                </div>
+
+                <!--字段: 内容-->
+                <div class="form-group form-group-block"
+                     ng-class="{ 'has-error': form.$dirty && form.content.$invalid }">
+                    <textarea class="form-control" rows="3" name="content" ng-model="ctrl.model.content" required placeholder="内容 ~~"></textarea>
+                </div>
+
+                <!--提交按钮-->
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid || form.$pending">
+                        <i class="iconfont">&#xe654;</i> 发布
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

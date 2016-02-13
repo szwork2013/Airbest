@@ -1,0 +1,47 @@
+﻿
+<div class="view view-flex">
+    <div class="view-body">
+        <div class="container no-padding">
+
+            <form class="form album-edit-form" name="form" novalidate ng-submit="form.$valid && !form.$pending && ctrl.submit()">
+
+                <!--字段: 图片-->
+                <div class="form-group form-group-block form-group-image">
+                    <input class="hidden" type="text" name="imageUrl" required ng-model="ctrl.model.imageUrl" />
+
+                    <div class="image-wrapper" ng-if="ctrl.model.imageUrl">
+                        <img ng-src="{{ctrl.model.imageUrl}}" toggle-class="liberated" />
+                    </div>
+
+                    <div class="upload-wrapper">
+                        <button type="button" class="btn btn-default"
+                                pl-upload
+                                pl-model="ctrl.model.imageUrl"
+                                on-file-added="ctrl.$ui.lock('正在上传')"
+                                on-file-uploaded="ctrl.$ui.unlock()">
+                            <i class="iconfont">&#xe662;</i> 选择
+                        </button>
+
+                        <small class="helper" style="color:#888;margin-left:5px;">*上传本村风貌照片</small>
+                    </div>
+                </div>
+
+                <!--字段: 说明-->
+                <div class="form-group form-group-block"
+                     ng-class="{ 'has-error': form.$dirty && form.name.$invalid }">
+                    <textarea class="form-control" rows="3" name="name" ng-model="ctrl.model.name" required placeholder="说几句吧 ~~"></textarea>
+                </div>
+
+                <!--提交按钮-->
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid || form.$pending">
+                        <i class="iconfont">&#xe654;</i> 发布
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

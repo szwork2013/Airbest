@@ -1,0 +1,24 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header"></div>
+    <div class="view-body">
+        <div class="container no-padding">
+            <form class="form" name="form" novalidate ng-submit="form.$valid && ctrl.submit()">
+                <div class="form-group form-group-block" ng-if="ctrl.target">
+                    【{{ctrl.target.member.nick}}】: {{ctrl.target.content}}
+                </div>
+                <div class="form-group form-group-block">
+                    <textarea class="form-control" required name="content" ng-model="ctrl.model.content" rows="4" placeholder="请乡亲们注意文明用语 ~"></textarea>
+                </div>
+                <div class="form-footer">
+                    <button class="btn btn-primary btn-block" type="submit" ng-disabled="form.$invalid || form.$pending">
+                        <i class="iconfont">&#xe631;</i> {{pageTitle}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

@@ -1,0 +1,49 @@
+﻿
+<div class="view view-flex">
+    <div class="view-body">
+        <div class="container no-padding">
+            <form name="form" class="form view-form-register" ng-submit="ctrl.submit(form)" novalidate>
+                <div class="form-group form-group-block form-group-member-head"
+                     ng-class="{ 'has-error': form.idCardNumber.$invalid }">
+                    <input type="text" class="hidden" name="headUrl" ng-model="ctrl.model.headUrl" />
+                    <div class="head-image img-block" pl-upload pl-model="ctrl.model.headUrl">
+                        <div class="img-blone">
+                            <img ng-src="{{ctrl.model.headUrl | defaultImg: 'head' }}" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div style="height:15px;"></div>
+                <div class="form-group form-group-hr" ng-class="{ 'has-error': form.nick.$invalid }">
+                    <div class="group-label">
+                        <i class="iconfont icon-emoji"></i>&nbsp;昵称
+                    </div>
+                    <div class="group-content">
+                        <input name="nick" ng-model="ctrl.model.nick" placeholder="必填" type="text" required class="form-control" />
+                        <div class="errmsg-block" ng-messages="form.nick.$error">
+                            <!--<p ng-message="required">必填</p>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-hr">
+                    <div class="group-label">性别</div>
+                    <div class="group-content">
+                        <select name="gender" class="form-control"
+                                ng-model="ctrl.model.gender"
+                                ng-options="item.id as item.name for item in ctrl.genderOptions"></select>
+                    </div>
+                </div>
+
+                <div class="form-group form-group-block">
+                    <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid || form.$pending">
+                        <i class="iconfont icon-squarecheck"></i>&nbsp;保存修改
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

@@ -1,0 +1,36 @@
+﻿
+<div class="view view-flex">
+    <div iscroll name="iscroll" class="view-body" auto-refresh scroll-bottom="ctrl.load()">
+        <div class="container no-padding">
+            <div class="img-block">
+                <img src="/Content/themes/res/banners/banner.news.jpg" />
+            </div>
+
+            <div class="alert text-center" ng-if="ctrl.news && !ctrl.news.length">
+                ~~ 还没有新闻发布 ~~
+            </div>
+
+            <!-- 新闻列表 -->
+            <div class="news-list" ng-if="ctrl.news && ctrl.news.length">
+                <a class="it" href="news/details?id={{item.id}}" ng-repeat="item in ctrl.news">
+                    <div class="it-head">
+                        <div class="image img-blone">
+                            <img ng-src="{{item.imageUrl}}" alt="" />
+                        </div>
+                    </div>
+                    <div class="it-body">
+                        <p class="title">{{item.title}}</p>
+                        <p class="info-wrapper">
+                            <span class="town">{{item.town.name}}</span>
+                            <time class="date">{{item.date | date: 'yyyy-MM-dd'}}</time>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <!-- 新闻列表 end -->
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

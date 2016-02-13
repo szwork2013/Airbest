@@ -1,0 +1,47 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <!--<i class="iconfont icon-back"></i>-->
+                    <i class="iconfont">&#58889;</i>
+                    <span>会员中心</span>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body view-member">
+        <div class="container no-padding">
+            <div class="view-member-navi">
+                <ol>
+                    <li>
+                        <a ng-href="member/profile" go-extern>
+                            <i class="iconfont">&#xe626;</i>
+                            <p>资料</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-href="member/change-password">
+                            <i class="iconfont">&#xe657;</i>
+                            <p>安全</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a ng-click="ctrl.signOut()">
+                            <i class="iconfont">&#xe61b;</i>
+                            <p>退出</p>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <a href="member/news/" class="btn btn-default">本村新闻</a>
+        <a href="member/product/" class="btn btn-default">土特产</a>
+        <a href="member/album/" class="btn btn-default">本村靓点</a>
+    </div>
+
+    <view-footer-navi active="member"></view-footer-navi>
+</div>

@@ -1,0 +1,20 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header"></div>
+    <div class="view-body">
+        <div class="list-group">
+            <a class="list-group-item clearfix"
+               ng-href="album/details?albumId={{item.id}}"
+               ng-repeat="item in ctrl.albums"
+               ng-if="item.photoCount">
+                {{item.name}}
+                <span class="pull-right">
+                    共{{item.photoCount}}张照片
+                </span>
+            </a>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

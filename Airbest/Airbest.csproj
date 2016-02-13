@@ -64,13 +64,31 @@
     <Compile Include="Db\ProductPropertyCategory_Res.cs" />
     <Compile Include="Db\ProductProperty_Res.cs" />
     <Compile Include="Db\Product_Res.cs" />
+    <Compile Include="Products\Categories\ProductCategory.cs" />
+    <Compile Include="Products\Categories\ProductCategoryService.cs" />
+    <Compile Include="Products\Product.cs" />
+    <Compile Include="Products\ProductCreateModel.cs" />
+    <Compile Include="Products\ProductQueryFilter.cs" />
+    <Compile Include="Products\ProductService.cs" />
+    <Compile Include="Products\ProductUpdateModel.cs" />
+    <Compile Include="Products\Properties\ChartProperty.cs" />
+    <Compile Include="Products\Properties\ProductProperty.cs" />
+    <Compile Include="Products\Properties\ProductPropertyService.cs" />
+    <Compile Include="Products\Properties\RangePropery.cs" />
+    <Compile Include="Products\Properties\ScalarProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Languages\LanguageCodes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\2016-01\2016-01.天下村微信\src\Huajie.Practices\Huajie.Practices.csproj">
+      <Project>{a1d63a60-33d4-4ddf-b8c3-ed45361918d0}</Project>
+      <Name>Huajie.Practices</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

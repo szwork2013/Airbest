@@ -1,0 +1,50 @@
+﻿
+<div class="view view-flex">
+    <div class="view-body">
+        <div class="container">
+
+            <!--文章-->
+            <div class="news-article">
+                <header class="ar-head">
+                    <h1>{{ctrl.news.title}}</h1>
+                    <div class="desc">
+                        <span class="town">{{ctrl.news.town.name}} </span>
+                        <span class="date">{{ctrl.news.date | date: "yyyy-MM-dd"}}</span>
+                    </div>
+                </header>
+                <div class="ar-body">
+                    <div class="rt-content styled" ng-bind-html="ctrl.news.content"></div>
+                </div>
+            </div>
+
+            <!-- 相关阅读 -->
+            <div class="news-related">
+                <div class="head">
+                    <i class="iconfont">&#xe68b;</i> 相关阅读
+                </div>
+
+                <!-- 新闻列表 -->
+                <div class="news-list" ng-if="ctrl.news && ctrl.relateds.length">
+                    <a class="it" href="news/details?id={{item.id}}" ng-repeat="item in ctrl.relateds">
+                        <div class="it-head">
+                            <div class="image img-blone">
+                                <img ng-src="{{item.imageUrl}}" alt="" />
+                            </div>
+                        </div>
+                        <div class="it-body">
+                            <p class="title">{{item.title}}</p>
+                            <p class="info-wrapper">
+                                <span class="town">{{item.town.name}}</span>
+                                <time class="date">{{item.date | date: 'yyyy-MM-dd'}}</time>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <!-- 新闻列表 end -->
+            </div>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

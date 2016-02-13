@@ -1,0 +1,52 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title-search">
+        <ol class="container">
+            <li>
+                <a ng-href="">
+                    <i class="iconfont">&#xe60a;</i>
+                </a>
+            </li>
+            <li class="body">
+                <a href="town/search">
+                    <span class="form-control">请在这里查找您的村庄...</span>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body iscroll-wrapper" iscroll>
+        <div class="container no-padding iscroll-flow">
+            <!--<a class="btn btn-default" ng-href="town/search">前去搜索村庄</a>-->
+            <div class="view-town-list">
+                <ul>
+                    <li ng-repeat="item in ctrl.towns" ng-if="item.imageUrl">
+                        <a class="block" ng-href="town/private?id={{item.id}}">
+                            <div class="image img-block">
+                                <div class="img-blone">
+                                    <img ng-src="{{item.imageUrl}}" alt="" />
+                                </div>
+                            </div>
+                            <div class="town-info-wrapper flex-cell">
+                                <div class="it-head">
+                                    <i class="iconfont">&#xe62b;</i>
+                                </div>
+                                <div class="it-body">
+                                    <p class="name clearfix">
+                                         {{item.name}}
+                                        <span class="master pull-right" ng-if="item.master != null">站长: {{item.master.name}}</span>
+                                        <span class="master pull-right" ng-if="item.master == null">暂无站长</span>
+                                    </p>
+                                    <p class="area">{{item.fullName}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

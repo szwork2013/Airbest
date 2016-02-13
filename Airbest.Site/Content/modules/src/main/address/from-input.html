@@ -1,0 +1,48 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title-search">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                    <!--<span ng-bind="ctrl.title"></span>-->
+                </a>
+            </li>
+            <li class="body">
+                <form>
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="ctrl.address" autofocus />
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" ng-click="ctrl.submit(ctrl.address)">
+                                <i class="iconfont">&#xe65a;</i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body">
+        <div class="container no-padding">
+            <div class="address-option-list">
+                <a class="it" 
+                   ng-repeat="item in ctrl.options" 
+                   ng-click="ctrl.submit(item.name)">
+                    <div class="media">
+                        <div class="media-left">
+                            <i class="iconfont">&#xe62b;</i>
+                        </div>
+                        <div class="media-body">
+                            <p class="name">{{item.name}}</p>
+                            <!--<p class="address">浙江省温州市龙湾区</p>-->
+                        </div>
+                        <div class="media-right">
+                            <p class="diff nowrap">{{item.city}}{{item.district}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

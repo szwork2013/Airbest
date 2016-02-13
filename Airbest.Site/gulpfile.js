@@ -21,6 +21,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('minifyjs', function () {
+
     var srcDir = "Content/modules/src/";
     var modules = ["utils", "bmap", "services", "directives", "main", "manage"];
 

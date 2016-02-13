@@ -1,0 +1,37 @@
+﻿
+
+<div class="view view-flex">
+    <div class="view-body">
+        <div class="container">
+            <article>
+                <header>
+                    <h1>{{ctrl.product.name}}</h1>
+                    <div class="desc clearfix">
+                        {{ctrl.product.town.name}}
+                        <div class="pull-right">
+                            {{ctrl.product.date | date: "yyyy-MM-dd"}}
+                        </div>
+                    </div>
+                </header>
+                <div class="rt-content styled" ng-bind-html="ctrl.product.content"></div>
+                <footer>
+                    <p class="clearfix">
+                        <a ng-href="product?townId={{ctrl.product.townId}}">查看本村新闻</a>
+                        <i class="iconfont pull-right">&#xe61a;</i>
+                    </p>
+                    <p class="clearfix">
+                        <a ng-href="album/details?albumId={{ctrl.product.townId}}">查看本村风貌</a>
+                        <i class="iconfont pull-right">&#xe61a;</i>
+                    </p>
+                    <p class="clearfix">
+                        <a ng-href="mail-group/town?id={{ctrl.product.townId}}">查看本村论坛</a>
+                        <i class="iconfont pull-right">&#xe61a;</i>
+                    </p>
+                </footer>
+            </article>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

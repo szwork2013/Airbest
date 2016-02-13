@@ -1,0 +1,31 @@
+﻿
+<div class="view view-flex">
+    <div class="view-body view-album-details">
+        <div class="container no-padding">
+            <div class="alert text-center" style="color: #fff" ng-if="!ctrl.photo || !ctrl.photo.imageUrl">
+                ~~ 对不起, 没有找到照片 ~~
+            </div>
+            <div class="image img-block">
+                <img src="{{ctrl.photo.imageUrl}}" alt="" />
+            </div>
+            <div class="desc-wrapper">
+                <p class="desc">
+                    <i class="iconfont">&#xe631;</i> {{ctrl.photo.name}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="view-footer-menu dark" style="">
+        <div class="btn-group" style="width: 100%;">
+            <button style="width:50%;" ng-click="ctrl.load({ id: ctrl.photo.prevId })" ng-disabled="!ctrl.photo.prevId" class="btn btn-default">
+                <i class="iconfont">&#xe60e;</i>  上一张
+            </button>
+            <button style="width:50%;" ng-click="ctrl.load({ id: ctrl.photo.nextId })" ng-disabled="!ctrl.photo.nextId" class="btn btn-default">
+                下一张 <i class="iconfont">&#xe61a;</i>
+            </button>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher position="top"></sliding-menu-toucher>
+</div>

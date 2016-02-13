@@ -1,0 +1,69 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header"></div>
+    <div class="view-body iscroll-wrapper" style="background-color:#eee;"
+         iscroll auto-refresh scroll-bottom="ctrl.load()">
+        <div class="container iscroll-flow" style="background-color:#eee;">
+
+            <div class="alert text-center" ng-if="ctrl.messages && !ctrl.messages.length">
+                <div ng-if="ctrl.replyStatus != 'unreply'">~~ 还没有人发言过 ~~</div>
+                <div ng-if="ctrl.replyStatus == 'unreply'">~~ 没有未回复的发言 ~~</div>
+            </div>
+
+            <ol class="mail-group-message-list" ng-if="ctrl.messages && ctrl.messages.length">
+                <li ng-repeat="item in ctrl.messages">
+                    <div class="member-head-wrapper">
+                        <div class="member-head">
+                            <div class="img-blone">
+                                <img ng-src="{{item.member.headUrl}}" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="message-content-wrapper">
+                        <div class="message-content">
+                            <div class="message-header">
+                                <span class="town">{{item.member.town.name}}</span>
+                                <span class="nick">{{item.member.nick}}</span>
+                                <small class="date">{{item.date | mailGroupDate}}</small>
+                            </div>
+                            <div class="message-body">
+                                {{item.content}}
+                            </div>
+                            <div class="message-reply-wrapper" ng-if="item.reply">
+                                <div class="message-reply">
+                                    <div class="reply-header">
+                                        <i class="iconfont">&#xe631;</i>&nbsp;天下村回复
+                                    </div>
+                                    <div class="reply-body">{{item.reply.content}}</div>
+                                </div>
+                            </div>
+                            <div class="message-reply-wrapper"
+                                 ng-if="!item.reply && ctrl.member && ctrl.member.townId == item.member.townId && ctrl.member.roles.indexOf('village-master') != -1">
+                                <div class="message-reply">
+                                    <a class="btn btn-default btn-block btn-sm" ng-href="mail-group/post?reply={{item.id}}">
+                                        <i class="iconfont">&#xe631;</i> 回复
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="view-footer-menu">
+        <a class="btn btn-primary btn-block" ng-href="passport/login" ng-if="!ctrl.member">
+            <i class="iconfont">&#xe631;</i>&nbsp;登录
+        </a>
+        <a class="btn btn-primary btn-block" ng-href="mail-group/post?id={{ctrl.member.townId}}" ng-if="ctrl.member && ctrl.member.townId == ctrl.id">
+            <i class="iconfont">&#xe631;</i>&nbsp;我要发言
+        </a>
+        <a class="btn btn-primary btn-block" ng-href="mail-group/town?id={{ctrl.member.townId}}" ng-if="ctrl.member && ctrl.member.townId != ctrl.id">
+            <i class="iconfont">&#xe631;</i>&nbsp;只能在本村发言, 点击前往
+        </a>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

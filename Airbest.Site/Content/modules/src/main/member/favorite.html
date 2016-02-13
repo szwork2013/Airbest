@@ -1,0 +1,46 @@
+﻿
+<div class="view view-flex">
+    <nav class="view-header view-title">
+        <ol class="container">
+            <li>
+                <a go-back>
+                    <i class="iconfont icon-back"></i>
+                    <span>我的收藏</span>
+                </a>
+            </li>
+        </ol>
+    </nav>
+
+    <div class="view-body view-member-favorite">
+        <div class="container">
+            <div ng-if="ctrl.products && !ctrl.products.length" class="alert text-center">
+                还没有收藏的商品
+            </div>
+            <ol ng-if="ctrl.products && ctrl.products.length" class="media-list media-list-bordered list-unstyled">
+                <li class="media" ng-repeat="product in ctrl.products">
+                    <div class="media-left" style="width:25%">
+                        <a ng-href="product/details?id={{product.id}}" class="img-block">
+                            <img ng-src="{{product.imageUrl}}" alt="" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <p class="name">
+                            <a ng-href="product/details?id={{product.id}}">{{product.name}}</a>
+                        </p>
+                        <div class="clearfix">
+                            <p class="pull-left price num-cny">{{product.wholesalePrice || product.price}}</p>
+                            <p class="pull-right">
+                                <a class="text-danger" role="button" ng-click="ctrl.remove(product)">
+                                    <i class="fa fa-trash-o"></i>
+                                    <span class="sr-only">删除</span>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <view-footer-navi active="member"></view-footer-navi>
+</div>

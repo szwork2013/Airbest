@@ -1,0 +1,124 @@
+﻿
+<div class="view view-flex">
+    <div class="view-header">
+    </div>
+
+    <div class="view-body" id="main-scroller">
+        <div class="container no-padding">
+            <div class="view-home-tiles">
+
+                <!--行:1-->
+                <div class="clearfix">
+                    <div class="tile tile-1x1">
+                        <div class="tile-blone">
+                            <a ng-if="ctrl.member == null" class="tile-content tile-content-text" 
+                               ng-href="town/search?returnUrl=passport%2Fregister" style="background-color:#36bd9c">
+                                <i class="iconfont">&#xe679;</i> 会员注册
+                            </a>
+                            <a ng-if="ctrl.member != null" class="tile-content tile-content-text" 
+                               ng-href="town/private?id={{ctrl.member.townId}}" style="background-color:#36bd9c">
+                                <i class="iconfont">&#xe628;</i> {{ctrl.member.town.name}}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile tile-1x1">
+                        <div class="tile-blone">
+                            <a class="tile-content tile-content-text" ng-href="contact" style="background-color:#6bccd5">
+                                <i class="iconfont">&#xe626;</i> 联系我们
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="tile tile-2x2 pull-right">
+                        <div class="tile-blone">
+                            <div class="tile-content">
+                                <img ng-src="/Content/themes/res/tiles/tile.2.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile tile-2x1">
+                        <div class="tile-blone">
+                            <div class="tile-content">
+                                <img ng-src="/Content/themes/res/tiles/tile.1.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--行:2-->
+                <div class="clearfix">
+                    <div class="tile tile-2x2 tile-hjkk">
+                        <div class="tile-blone">
+                            <a ng-href="town" class="tile-content" title="天下村带你常回家看看" style="padding:0;">
+                                <img ng-src="/Content/themes/res/tiles/tile.3.jpg?v=1" alt="" />
+                                <div class="p-wrapper">
+                                    <p class="p1">中国天下村</p>
+                                    <p class="p2">带您常回家看看</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tile tile-1x1">
+                        <div class="tile-blone">
+                            <a class="tile-content tile-content-text" ng-href="news"
+                               style="background-color:#f28e74">
+                                <i class="iconfont">&#xe69a;</i> 各村新闻
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tile tile-1x1">
+                        <div class="tile-blone">
+                            <a class="tile-content tile-content-text" ng-href="mail-group/town?id=" style="background-color:#fdcc66">
+                                <i class="iconfont">&#xe67b;</i> 各村论坛
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tile tile-1x1">
+                        <div class="tile-blone">
+                            <a class="tile-content tile-content-text" ng-href="product" style="background-color:#f6bb43">
+                                <i class="iconfont">&#xe665;</i>各村农产品
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tile tile-1x1">
+                        <div class="tile-blone">
+                            <a class="tile-content tile-content-text" ng-href="album" style="background-color:#db4352">
+                                <i class="iconfont">&#xe662;</i>各村风貌
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--行:3-->
+                <div class="clearfix">
+                    <div class="tile tile-2x1">
+                        <div class="tile-blone">
+                            <div class="tile-content" ng-href="">
+                                <img src="/Content/themes/res/tiles/tile.4.jpg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tile tile-2x2 pull-right">
+                        <div class="tile-blone">
+                            <div class="tile-content" ng-href="">
+                                <img src="/Content/themes/res/tiles/tile.5.jpg" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tile tile-2x1">
+                        <div class="tile-blone">
+                            <a class="tile-content tile-content-text" ng-href="town" style="background-color:#c284b3">
+                                <i class="iconfont">&#xe67d;</i>走吧去看一看
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <sliding-menu></sliding-menu>
+    <sliding-menu-toucher></sliding-menu-toucher>
+</div>

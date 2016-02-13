@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airbest.Site", "Airbest.Sit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Airbest.Site.Tests", "Airbest.Site.Tests\Airbest.Site.Tests.csproj", "{151EDAD3-7B44-430D-B280-71D6C5CF8B84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huajie.Practices", "..\..\..\2016-01\2016-01.天下村微信\src\Huajie.Practices\Huajie.Practices.csproj", "{A1D63A60-33D4-4DDF-B8C3-ED45361918D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{151EDAD3-7B44-430D-B280-71D6C5CF8B84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{151EDAD3-7B44-430D-B280-71D6C5CF8B84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{151EDAD3-7B44-430D-B280-71D6C5CF8B84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1D63A60-33D4-4DDF-B8C3-ED45361918D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1D63A60-33D4-4DDF-B8C3-ED45361918D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1D63A60-33D4-4DDF-B8C3-ED45361918D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1D63A60-33D4-4DDF-B8C3-ED45361918D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
