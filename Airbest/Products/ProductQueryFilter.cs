@@ -9,5 +9,6 @@ namespace Airbest.Products
 {
     public class ProductQueryFilter: QueryFilter
     {
+        public ProductQueryIncludes Includes { get; set; }
     }
 }

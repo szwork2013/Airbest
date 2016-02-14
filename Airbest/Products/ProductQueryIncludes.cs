@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Airbest.Products
 {
-    public class ProductCreateModel: ProductUpdateModel
+    [Flags]
+    public enum ProductQueryIncludes
     {
+        None = 0,
     }
 }

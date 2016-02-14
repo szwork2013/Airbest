@@ -55,6 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Db\Model1.cs" />
+    <Compile Include="Db\ProductSpecial.cs" />
+    <Compile Include="Db\ProductSpecialItem.cs" />
+    <Compile Include="Db\ProductSpecialItem_Res.cs" />
+    <Compile Include="Db\ProductSpecial_Res.cs" />
     <Compile Include="Db\_AirbestDbContext.cs" />
     <Compile Include="Db\Product.cs" />
     <Compile Include="Db\ProductCategory.cs" />
@@ -69,6 +74,8 @@
     <Compile Include="Products\Product.cs" />
     <Compile Include="Products\ProductCreateModel.cs" />
     <Compile Include="Products\ProductQueryFilter.cs" />
+    <Compile Include="Products\ProductQueryIncludes.cs" />
+    <Compile Include="Products\Res\ProductRes.cs" />
     <Compile Include="Products\ProductService.cs" />
     <Compile Include="Products\ProductUpdateModel.cs" />
     <Compile Include="Products\Properties\ChartProperty.cs" />
@@ -76,6 +83,10 @@
     <Compile Include="Products\Properties\ProductPropertyService.cs" />
     <Compile Include="Products\Properties\RangePropery.cs" />
     <Compile Include="Products\Properties\ScalarProperty.cs" />
+    <Compile Include="Products\Specials\Special.cs" />
+    <Compile Include="Products\Specials\SpecialItem.cs" />
+    <Compile Include="Products\Specials\SpecialItemRes.cs" />
+    <Compile Include="Products\Specials\SpecialRes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Languages\LanguageCodes.cs" />
   </ItemGroup>

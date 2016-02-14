@@ -8,6 +8,19 @@ var app;
                 this.$q = $q;
             }
             /**
+             * 创建商品.
+             * @param m
+             */
+            ProductService.prototype.create = function (m) {
+                var _this = this;
+                var u = "/api/product/create";
+                return this.$http.post(u, m).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
+            };
+            ProductService.prototype.updateSpecials = function (id, specials, opt) {
+            };
+            /**
              * 获取商品列表
              * @param filter
              */
@@ -34,6 +47,27 @@ var app;
                         return _this.$q.resolve(r);
                     });
                 }
+            };
+            ProductService.prototype.getRes = function (id) {
+                var _this = this;
+                var u = ["/api/product", id, "/res"].join("/");
+                return this.$http.get(u).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
+            };
+            ProductService.prototype.update = function (id, m) {
+                var _this = this;
+                var u = "/api/product/" + id + "/update";
+                return this.$http.post(u, m).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
+            };
+            ProductService.prototype.updateRes = function (id, m) {
+                var _this = this;
+                var u = "/api/product/" + id + "/update-res";
+                return this.$http.post(u, m).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
             };
             ProductService.prototype.updateOrAdd = function (data) {
                 var _this = this;

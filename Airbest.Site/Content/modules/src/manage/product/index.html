@@ -1,45 +1,10 @@
 ﻿
 <div class="view">
-    <div class="view-header">
-    </div>
-
-    <div class="view-body flex-horizontal">
-        <div class="aside">
-            <ol>
-                <li>
-                    真空发生器
-                    <ol>
-                        <li>
-                            迷你型真空发生器
-                            <ol>
-                                <li>ABM系列</li>
-                                <li>ABX系列</li>
-                            </ol>
-                        </li>
-                        <li>
-                            组合式真空发生器
-                            <ol>
-                                <li>ABM系列</li>
-                                <li>ABX系列</li>
-                            </ol>
-                        </li>
-                        <li>
-                            集成式真空发生器
-                            <ol>
-                                <li>ASM系列</li>
-                                <li>ASX系列</li>
-                                <li>AM系列</li>
-                            </ol>
-                        </li>
-                        <li>多级真空发生器</li>
-                    </ol>
-                </li>
-                <li>真空过滤器</li>
-                <li>真空吸盘</li>
-                <li>真空附件</li>
-            </ol>
-        </div>
-        <div class="body">
-        </div>
+    <div class="container">
+        <ol>
+            <li ng-repeat="item in ctrl.products">
+                <a ng-href="product/details?id={{item.id}}">{{item.name}}</a>
+            </li>
+        </ol>
     </div>
 </div>

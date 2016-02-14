@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Airbest.Products
+namespace Airbest.Products.Res
 {
-    public class ProductUpdateModel
+    public class ProductRes
     {
         public string Name { get; set; }
-        public Guid? CategoryId { get; set; }
-        public string SkuNameFormat { get; set; }
+
+        public string Desc { get; set; }
     }
 }

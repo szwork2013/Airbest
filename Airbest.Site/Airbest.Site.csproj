@@ -240,6 +240,7 @@
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\Products\ProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -639,8 +640,6 @@
     <Content Include="bower_components\velocity\velocity.min.js" />
     <Content Include="bower_components\velocity\velocity.ui.js" />
     <Content Include="bower_components\velocity\velocity.ui.min.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\modules\src\manage\json\home-navi.html" />
     <Content Include="Content\modules\src\manage\json\index.html" />
     <Content Include="Content\modules\src\manage\json\IndexController.js">
@@ -650,6 +649,11 @@
       <DependentUpon>module.ts</DependentUpon>
     </Content>
     <Content Include="Content\modules\src\manage\product\category\index.html" />
+    <Content Include="Content\modules\src\manage\product\details-info.html" />
+    <Content Include="Content\modules\src\manage\product\details-properties.html" />
+    <Content Include="Content\modules\src\manage\product\details-base.html" />
+    <Content Include="Content\modules\src\manage\product\details-skus.html" />
+    <Content Include="Content\modules\src\manage\product\details.html" />
     <Content Include="Content\modules\src\manage\product\index.html" />
     <Content Include="Content\modules\src\services\defaultImg\defaultImgFilter.js">
       <DependentUpon>defaultImgFilter.ts</DependentUpon>
@@ -715,9 +719,7 @@
       <DependentUpon>manage.css</DependentUpon>
     </Content>
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -1036,6 +1038,7 @@
     <Content Include="Content\themes\src\app.less" />
     <Content Include="Content\themes\src\base.less" />
     <Content Include="Content\modules\src\manage\product\series\index.html" />
+    <Content Include="Content\modules\src\manage\product\create.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\domReady.js" />
     <Content Include="Scripts\handlebars-v3.0.0.js" />
@@ -1115,14 +1118,15 @@
     <Folder Include="Content\themes\src\manage\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\2016-01\2016-01.天下村微信\src\Huajie.Practices\Huajie.Practices.csproj">
+      <Project>{a1d63a60-33d4-4ddf-b8c3-ed45361918d0}</Project>
+      <Name>Huajie.Practices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Airbest\Airbest.csproj">
       <Project>{f8ff7bf2-7210-4856-86b1-6719210c71f5}</Project>
       <Name>Airbest</Name>
@@ -1132,7 +1136,13 @@
     <TypeScriptCompile Include="Content\modules\src\app.d.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\json\IndexController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\module.ts" />
-    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\ManageProductIndexController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\CreateController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\IndexController.ts" />
     <TypeScriptCompile Include="Content\modules\src\services\defaultImg\defaultImgFilter.ts" />
     <TypeScriptCompile Include="Content\modules\src\services\desc\descFilter.ts" />
     <TypeScriptCompile Include="Content\modules\src\services\Members\FavoriteService.ts" />
@@ -1177,7 +1187,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49909</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49909/</IISUrl>
+          <IISUrl>http://localhost:49910/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

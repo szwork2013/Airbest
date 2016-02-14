@@ -6,7 +6,7 @@ namespace Airbest.Db
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Product_Res
+    public partial class ProductSpecial_Res
     {
         [Key]
         [Column(Order = 0)]
@@ -18,8 +18,6 @@ namespace Airbest.Db
         public string Language { get; set; }
 
         public string Name { get; set; }
-
-        public string Content { get; set; }
 
         public string Desc { get; set; }
     }

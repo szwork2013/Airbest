@@ -1,0 +1,20 @@
+﻿
+<div class="view">
+    <div class="container">
+
+        <!--表单-->
+        <form class="form" name="form" ng-submit="form.$valid && !form.$pending && ctrl.submit()" novalidate >
+            <div class="form-group" ng-class="{'has-error': form.name.$invalid}">
+                <div class="group-label">名称</div>
+                <div class="group-content">
+                    <input name="name" type="text" class="form-control" ng-model="ctrl.model.name" required placeholder="必填" />
+                    <p class="help-block">产品名称, 例如: ABM系列</p>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button type="submit" class="btn btn-primary btn-block">OK</button>
+            </div>
+        </form>
+
+    </div>
+</div>

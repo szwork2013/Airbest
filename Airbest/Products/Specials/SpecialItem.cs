@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Airbest.Products
+namespace Airbest.Products.Specials
 {
-    public class ProductCreateModel: ProductUpdateModel
+    public class SpecialItem
     {
+        public Guid? Id { get; set; }
     }
 }

@@ -18,6 +18,7 @@ module app.manage {
         ) {
             $rootScope.$on("$routeChangeSuccess", function (event) {
                 $ui.unlock();
+                $rootScope["pageTitle"] = $route.current.locals["title"];
             });
 
             $rootScope.$on("$routeChangeError", function (event, current, prev, rejection) {
@@ -44,6 +45,8 @@ module app.manage {
         });
          
         table.routes = [
+            { title: "添加产品", path: "/product/create" },
+            { title: "产品中心", path: "/product/details" },
             { title: "产品中心", path: "/product/" },
             { path: "/" }, 
         ];

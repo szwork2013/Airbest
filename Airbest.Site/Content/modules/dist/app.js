@@ -422,6 +422,19 @@ var app;
                 this.$q = $q;
             }
             /**
+             * 创建商品.
+             * @param m
+             */
+            ProductService.prototype.create = function (m) {
+                var _this = this;
+                var u = "/api/product/create";
+                return this.$http.post(u, m).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
+            };
+            ProductService.prototype.updateSpecials = function (id, specials, opt) {
+            };
+            /**
              * 获取商品列表
              * @param filter
              */
@@ -448,6 +461,27 @@ var app;
                         return _this.$q.resolve(r);
                     });
                 }
+            };
+            ProductService.prototype.getRes = function (id) {
+                var _this = this;
+                var u = ["/api/product", id, "/res"].join("/");
+                return this.$http.get(u).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
+            };
+            ProductService.prototype.update = function (id, m) {
+                var _this = this;
+                var u = "/api/product/" + id + "/update";
+                return this.$http.post(u, m).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
+            };
+            ProductService.prototype.updateRes = function (id, m) {
+                var _this = this;
+                var u = "/api/product/" + id + "/update-res";
+                return this.$http.post(u, m).then(function (rsp) {
+                    return _this.$q.resolve(rsp.data);
+                });
             };
             ProductService.prototype.updateOrAdd = function (data) {
                 var _this = this;
@@ -3899,6 +3933,7 @@ var app;
         manage.$module.run(function ($rootScope, $route, $location, $ui, $identity) {
             $rootScope.$on("$routeChangeSuccess", function (event) {
                 $ui.unlock();
+                $rootScope["pageTitle"] = $route.current.locals["title"];
             });
             $rootScope.$on("$routeChangeError", function (event, current, prev, rejection) {
                 if (rejection && rejection.redirect) {
@@ -3921,6 +3956,8 @@ var app;
                 }
             });
             table.routes = [
+                { title: "添加产品", path: "/product/create" },
+                { title: "产品中心", path: "/product/details" },
                 { title: "产品中心", path: "/product/" },
                 { path: "/" },
             ];
@@ -4050,9 +4087,270 @@ var app;
 (function (app) {
     var manage;
     (function (manage) {
-        var ManageProductIndexController = (function () {
-            function ManageProductIndexController() {
+        var ManageProductCreateController = (function () {
+            function ManageProductCreateController($location, $product) {
+                this.$location = $location;
+                this.$product = $product;
+                this.model = {};
             }
+            ManageProductCreateController.prototype.submit = function () {
+                var _this = this;
+                this.$product.create(this.model).then(function (r) {
+                    var u = "product/details?id=" + r.id;
+                    _this.$location.url(u).replace();
+                });
+            };
+            return ManageProductCreateController;
+        }());
+        manage.$module.controller("ManageProductCreateController", ManageProductCreateController);
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsBaseController = (function () {
+            function ManageProductDetailsBaseController($location, $scope, $product) {
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$product = $product;
+                this.product = null;
+                this.model = null;
+                this.product = $scope["product"];
+                this.model = this.product;
+                //this.model = {
+                //    name: this.product.name,
+                //};
+            }
+            ManageProductDetailsBaseController.prototype.submit = function () {
+                this.$product.update(this.product.id, this.model).then(function (r) {
+                    alert("更新成功");
+                    //angular.extend(this.product, this.model);
+                });
+            };
+            return ManageProductDetailsBaseController;
+        }());
+        manage.$module.directive("productDetailsBase", function () {
+            return {
+                templateUrl: "/Content/modules/src/manage/product/details-base.html",
+                restrict: "E",
+                replace: true,
+                controller: ManageProductDetailsBaseController,
+                controllerAs: "ctrl",
+                scope: {
+                    product: "="
+                }
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsController = (function () {
+            function ManageProductDetailsController($location, $product) {
+                this.$location = $location;
+                this.$product = $product;
+                this.product = null;
+                this.id = null;
+                this.tab = null;
+                this.id = $location.search().id;
+                this.tab = "skus";
+                this.load();
+            }
+            ManageProductDetailsController.prototype.load = function () {
+                var _this = this;
+                this.$product.get(this.id).then(function (r) {
+                    _this.product = r;
+                });
+            };
+            return ManageProductDetailsController;
+        }());
+        manage.$module.controller("ManageProductDetailsController", ManageProductDetailsController);
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsInfoController = (function () {
+            function ManageProductDetailsInfoController($location, $scope, $product) {
+                var _this = this;
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$product = $product;
+                this.model = null;
+                this.product = null;
+                this.langs = [
+                    { name: "简体", code: "cmn-Hans" },
+                    { name: "繁体", code: "cmn-Hant" },
+                    { name: "英语", code: "eng" },
+                    { name: "德语", code: "deu" }
+                ];
+                this.product = $scope["product"];
+                this.$product.getRes(this.product.id).then(function (r) {
+                    _this.model = r;
+                    _.forEach(_this.langs, function (lang) {
+                        _this.model[lang.code] = _this.model[lang.code] || {};
+                    });
+                });
+            }
+            ManageProductDetailsInfoController.prototype.submit = function () {
+                this.$product.updateRes(this.product.id, this.model).then(function (r) {
+                    alert("更新成功");
+                });
+            };
+            return ManageProductDetailsInfoController;
+        }());
+        manage.$module.directive("productDetailsInfo", function () {
+            return {
+                templateUrl: "/Content/modules/src/manage/product/details-info.html",
+                restrict: "E",
+                replace: true,
+                controller: ManageProductDetailsInfoController,
+                controllerAs: "ctrl",
+                scope: {
+                    product: "="
+                }
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductPropertiesInfoController = (function () {
+            function ManageProductPropertiesInfoController($location, $scope, $product) {
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$product = $product;
+                this.product = null;
+                this.model = null;
+                this.product = $scope["product"];
+                this.model = {
+                    id: this.product.id,
+                    name: this.product.name,
+                };
+            }
+            ManageProductPropertiesInfoController.prototype.submit = function () {
+                var _this = this;
+                console.log(this.product.id, this.model);
+                this.$product.update(this.product.id, this.model).then(function (r) {
+                    alert("更新成功");
+                    angular.extend(_this.product, _this.model);
+                });
+            };
+            return ManageProductPropertiesInfoController;
+        }());
+        manage.$module.directive("productDetailsProperties", function () {
+            return {
+                templateUrl: "/Content/modules/src/manage/product/details-properties.html",
+                restrict: "E",
+                replace: true,
+                controller: ManageProductPropertiesInfoController,
+                controllerAs: "ctrl",
+                scope: {
+                    product: "="
+                }
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductSkusInfoController = (function () {
+            function ManageProductSkusInfoController($location, $scope, $product) {
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$product = $product;
+                this.product = null;
+                this.specials = null;
+                this.langs = [
+                    { name: "简体", code: "cmn-Hans" },
+                    { name: "繁体", code: "cmn-Hant" },
+                    { name: "英语", code: "eng" },
+                    { name: "德语", code: "deu" }
+                ];
+                this.product = $scope["product"];
+                this.load();
+            }
+            ManageProductSkusInfoController.prototype.submit = function () {
+                var _this = this;
+                this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
+                    _this.specials = r;
+                    alert("型号更新成功");
+                });
+            };
+            ManageProductSkusInfoController.prototype.load = function () {
+                this.specials = [];
+            };
+            ManageProductSkusInfoController.prototype.addProp = function () {
+                this.specials.push({});
+            };
+            ManageProductSkusInfoController.prototype.addValue = function (prop) {
+                prop.values = prop.values || [];
+                prop.values.push({});
+            };
+            ManageProductSkusInfoController.prototype.remove = function (it, arr) {
+                var i = arr.indexOf(it);
+                if (i != -1) {
+                    arr.splice(i, 1);
+                }
+            };
+            ManageProductSkusInfoController.prototype.swipe = function (it, arr, step) {
+                var i = arr.indexOf(it);
+                if (i != -1) {
+                    var ii = i + step;
+                    if (ii >= 0 && ii < arr.length) {
+                        var tmp = arr[ii];
+                        arr[ii] = arr[i];
+                        arr[i] = tmp;
+                    }
+                }
+            };
+            return ManageProductSkusInfoController;
+        }());
+        manage.$module.directive("productDetailsSkus", function () {
+            return {
+                templateUrl: "/Content/modules/src/manage/product/details-skus.html",
+                restrict: "E",
+                replace: true,
+                controller: ManageProductSkusInfoController,
+                controllerAs: "ctrl",
+                scope: {
+                    product: "="
+                }
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductIndexController = (function () {
+            function ManageProductIndexController($location, $product) {
+                this.$location = $location;
+                this.$product = $product;
+                this.products = null;
+                this.load();
+            }
+            ManageProductIndexController.prototype.load = function () {
+                var _this = this;
+                this.$product.getList({}).then(function (r) {
+                    _this.products = r.data;
+                });
+            };
             return ManageProductIndexController;
         }());
         manage.$module.controller("ManageProductIndexController", ManageProductIndexController);

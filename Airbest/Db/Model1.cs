@@ -5,10 +5,10 @@ namespace Airbest.Db
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class AirbestDbContext : DbContext
+    public partial class Model1 : DbContext
     {
-        public AirbestDbContext()
-            : base("name=AirbestDbContext")
+        public Model1()
+            : base("name=Model11")
         {
         }
 

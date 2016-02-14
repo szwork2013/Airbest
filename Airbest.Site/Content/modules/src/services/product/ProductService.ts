@@ -1,12 +1,31 @@
 ﻿
 module app.services {
 
+    export interface IProduct {
+        id: string;
+        name: string;
+    }
+
     export class ProductService {
 
         constructor(
             private $http: ng.IHttpService,
             private $q: ng.IQService
         ) {
+        }
+
+        /**
+         * 创建商品.
+         * @param m
+         */
+        public create(m: Object) {
+            let u = "/api/product/create";
+            return this.$http.post<IProduct>(u, m).then(rsp => {
+                return this.$q.resolve(rsp.data);
+            });
+        }
+
+        public updateSpecials(id: string, specials: any, opt) {
         }
 
         /**
@@ -34,6 +53,27 @@ module app.services {
                         return this.$q.resolve(r);
                     });
             }
+        }
+
+        public getRes(id: string) {
+            let u = ["/api/product", id, "/res"].join("/");
+            return this.$http.get<any>(u).then(rsp => {
+                return this.$q.resolve(rsp.data);
+            });
+        }
+
+        public update(id: string, m) {
+            let u = "/api/product/" + id + "/update";
+            return this.$http.post<any>(u, m).then(rsp => {
+                return this.$q.resolve(rsp.data);
+            });
+        }
+
+        public updateRes(id: string, m) {
+            let u = "/api/product/" + id + "/update-res";
+            return this.$http.post<any>(u, m).then(rsp => {
+                return this.$q.resolve(rsp.data);
+            });
         }
 
         public updateOrAdd(data) {
