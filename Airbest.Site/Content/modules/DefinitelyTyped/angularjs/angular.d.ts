@@ -599,7 +599,7 @@ declare module angular {
 
     ///////////////////////////////////////////////////////////////////////////
     // BrowserService
-    // TODO undocumented, so we need to get it from the source code
+    // #TODO undocumented, so we need to get it from the source code
     ///////////////////////////////////////////////////////////////////////////
     interface IBrowserService {
         defer: angular.ITimeoutService;

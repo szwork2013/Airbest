@@ -23,24 +23,40 @@ module app.manage {
         }
 
         public submit() {
-            this.$product.updateSpecials(this.product.id, this.specials).then(r => {
-                this.specials = r;
-                alert("型号更新成功");
-            });
+            if (confirm("确认要保存对型号规格的修改吗?")) {
+                // sort
+                _.forEach<any>(this.specials, (special, i) => {
+                    special.index = i;
+                    _.forEach<any>(special.items || [], (item, ii) => {
+                        item.index = ii;
+                    });
+                });
+
+                this.$product.updateSpecials(this.product.id, this.specials).then(r => {
+                    alert("型号更新成功");
+                    this.load();
+                });
+            }
         }
 
         public load() {
-            this.specials = [];
+            let filter = {
+                productId: this.product.id,
+                includes: "res,items"
+            };
+            this.$product.getSpecials(filter).then(r => {
+                this.specials = r.data;
+            });
         }
 
-        public addProp() {
+        public addSpecial() {
             this.specials.push({
             });
         }
 
-        public addValue(prop) {
-            prop.values = prop.values || [];
-            prop.values.push({});
+        public addItem(special) {
+            special.items = special.items || [];
+            special.items.push({});
         }
 
         public remove(it, arr: any[]) {

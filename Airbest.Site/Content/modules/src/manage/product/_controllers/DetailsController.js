@@ -10,7 +10,7 @@ var app;
                 this.id = null;
                 this.tab = null;
                 this.id = $location.search().id;
-                this.tab = "skus";
+                this.tab = "properties";
                 this.load();
             }
             ManageProductDetailsController.prototype.load = function () {

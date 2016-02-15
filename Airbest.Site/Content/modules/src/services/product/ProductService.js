@@ -18,7 +18,18 @@ var app;
                     return _this.$q.resolve(rsp.data);
                 });
             };
-            ProductService.prototype.updateSpecials = function (id, specials, opt) {
+            ProductService.prototype.getSpecials = function (filter) {
+                var u = "/api/product/special";
+                return this.$http.get(u, { params: filter }).then(function (rsp) {
+                    return rsp.data;
+                });
+            };
+            ProductService.prototype.updateSpecials = function (pid, data) {
+                var u = "/api/product/special/update";
+                var params = { productId: pid, replace: true };
+                return this.$http.post(u, data, { params: params }).then(function (rsp) {
+                    return rsp.data;
+                });
             };
             /**
              * 获取商品列表

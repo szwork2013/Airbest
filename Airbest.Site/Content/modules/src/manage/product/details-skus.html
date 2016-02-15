@@ -4,7 +4,7 @@
     <!--表单-->
     <form class="form" name="form" ng-submit="form.$valid && !form.$pending && ctrl.submit()" novalidate>
         <hr />
-        <div ng-repeat="prop in ctrl.specials">
+        <div ng-repeat="special in ctrl.specials">
             <div class="row">
                 <div class="col-xs-2">
                 </div>
@@ -14,42 +14,52 @@
                 <div class="col-xs-3 group-label">
                     <div class="input-group" ng-repeat="lang in ctrl.langs">
                         <div class="input-group-addon">{{lang.name}}</div>
-                        <input type="text" class="form-control" ng-model="prop.res[lang.code].name" placeholder="规格名称" />
+                        <input type="text" class="form-control" ng-model="special.res[lang.code].name" placeholder="规格名称" />
                     </div>
                 </div>
-                <div class="col-xs-9 group-content">
+                <div class="col-xs-7 group-content">
                     <div class="input-group" ng-repeat="lang in ctrl.langs">
                         <div class="input-group-addon">{{lang.name}}</div>
-                        <input type="text" class="form-control" ng-model="prop.res[lang.code].desc" placeholder="规格说明" />
+                        <input type="text" class="form-control" ng-model="special.res[lang.code].desc" placeholder="规格说明" />
                     </div>
+                </div>
+                <div class="col-xs-2 text-right">
+                    <button type="button" ng-click="ctrl.swipe(special, ctrl.specials, -1)">上移</button>
+                    <button type="button" ng-click="ctrl.swipe(special, ctrl.specials, +1)">下移</button>
+                    <button type="button" ng-click="ctrl.remove(special, ctrl.specials)">删除</button>
                 </div>
             </div>
 
             <div class="values">
-                <div class="row form-group" ng-repeat="value in prop.values">
+                <div class="row form-group" ng-repeat="item in special.items">
                     <div class="col-xs-3 group-label">
-                        <input class="form-control" placeholder="规格值" ng-model="value.name" />
+                        <input class="form-control" placeholder="规格值" ng-model="item.name" />
                     </div>
-                    <div class="col-xs-9 group-content">
+                    <div class="col-xs-7 group-content">
                         <div class="input-group" ng-repeat="lang in ctrl.langs">
                             <div class="input-group-addon">{{lang.name}}</div>
-                            <input type="text" class="form-control" ng-model="value.res[lang.code].desc" placeholder="值说明" />
+                            <input type="text" class="form-control" ng-model="item.res[lang.code].desc" placeholder="值说明" />
                         </div>
                     </div>
+                    <div class="col-xs-2 text-right">
+                        <button type="button" ng-click="ctrl.swipe(item, special.items, -1)">上移</button>
+                        <button type="button" ng-click="ctrl.swipe(item, special.items, +1)">下移</button>
+                        <button type="button" ng-click="ctrl.remove(item, special.items)">删除</button>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-default" ng-click="ctrl.addValue(prop)">添加值</button>
+                <button type="button" class="btn btn-default" ng-click="ctrl.addItem(special)">添加值</button>
             </div>
             <hr />
         </div>
-        <button type="button" class="btn btn-default" ng-click="ctrl.addProp()">添加规格</button>
+        <button type="button" class="btn btn-default" ng-click="ctrl.addSpecial()">添加规格</button>
         <hr />
         <div class="form-footer">
             <div class="btn-group btn-group-justified">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-default btn-block" ng-click="ctrl.load()">刷新</button>
+                    <button type="button" class="btn btn-default btn-block" ng-click="ctrl.load()">重新加载</button>
                 </div>
                 <div class="btn-group">
-                    <button type="submit" class="btn btn-primary btn-block">OK</button>
+                    <button type="submit" class="btn btn-primary btn-block">保存修改</button>
                 </div>
             </div>
         </div>

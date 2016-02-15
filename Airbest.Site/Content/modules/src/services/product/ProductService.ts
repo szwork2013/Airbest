@@ -25,7 +25,19 @@ module app.services {
             });
         }
 
-        public updateSpecials(id: string, specials: any, opt) {
+        public getSpecials(filter) {
+            let u = "/api/product/special";
+            return this.$http.get<any>(u, { params: filter }).then(rsp => {
+                return rsp.data;
+            });
+        }
+
+        public updateSpecials(pid: string, data: any[]) {
+            let u = "/api/product/special/update";
+            let params = { productId: pid, replace: true };
+            return this.$http.post<any>(u, data, { params: params }).then(rsp => {
+                return rsp.data;
+            });
         }
 
         /**

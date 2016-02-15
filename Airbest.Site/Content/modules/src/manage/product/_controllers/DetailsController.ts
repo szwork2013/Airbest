@@ -11,7 +11,7 @@ module app.manage {
             private $product: app.services.ProductService
         ) {
             this.id = $location.search().id;
-            this.tab = "skus";
+            this.tab = "properties";
             this.load();
         }
 

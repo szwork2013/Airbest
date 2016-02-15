@@ -241,6 +241,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\Products\ProductController.cs" />
+    <Compile Include="Controllers\Api\Languages\TextResController.cs" />
+    <Compile Include="Controllers\Api\Products\ProductSpecialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">

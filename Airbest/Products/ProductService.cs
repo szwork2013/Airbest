@@ -7,17 +7,23 @@ using System.Threading.Tasks;
 using Airbest.Db;
 using Meow.Diagnosis;
 using Airbest.Products.Specials;
+using Huajie.Practices.Models;
+using Airbest.Languages;
 
 namespace Airbest.Products
 {
     public class ProductService
     {
         private readonly Db.AirbestDbContext db;
+        private readonly TextResService textSvr;
 
-        public ProductService(AirbestDbContext db)
+        public ProductService(AirbestDbContext db, TextResService textSvr)
         {
             ThrowHelper.ThrowNullArgument(db, nameof(db));
+            ThrowHelper.ThrowNullArgument(textSvr, nameof(textSvr));
+
             this.db = db;
+            this.textSvr = textSvr;
         }
 
         /// <summary>
@@ -39,7 +45,6 @@ namespace Airbest.Products
 
             db.Products.Add(dbm);
             db.SaveChanges();
-
             return WrapProduct(dbm);
         }
 
@@ -55,111 +60,6 @@ namespace Airbest.Products
             dbm.Name = updateModel.Name;
             dbm.CategoryId = updateModel.CategoryId;
             dbm.SkuNameFormat = updateModel.SkuNameFormat;
-
-            db.SaveChanges();
-        }
-
-        public void UpdateSpecials(Guid id, IEnumerable<Special> specials, BulkUpdateActions actions)
-        {
-            ThrowHelper.ThrowNullArgument(specials, nameof(specials));
-            int changed = 0;
-
-            var q = from it in db.ProductSpecials
-                    where it.ProductId == id
-                    orderby it.Index
-                    select it;
-
-            var dbmMap = q.ToDictionary(it => it.Id);
-
-            foreach (var special in specials)
-            {
-                Db.ProductSpecial dbm = null;
-
-                if (actions.HasFlag(BulkUpdateActions.Add) || (
-                        actions.HasFlag(BulkUpdateActions.Update)
-                        && special.Id != null
-                        && dbmMap.TryGetValue((Guid)special.Id, out dbm)))
-                {
-                    dbm = CreateOrUpdateSpecialDbm(special, dbm, id);
-                    ++changed;
-                }
-            }
-
-            if (actions.HasFlag(BulkUpdateActions.Remove))
-                foreach (var dbm in dbmMap.Values.Where(dbm => specials.All(s => s.Id != dbm.Id)))
-                    db.ProductSpecials.Remove(dbm);
-        }
-
-        private Db.ProductSpecial CreateOrUpdateSpecialDbm(Special updateModel, Db.ProductSpecial dbm, Guid productId)
-        {
-            if (dbm == null)
-            {
-                dbm = db.ProductSpecials.Add(
-                    new ProductSpecial()
-                    {
-                        Id = updateModel.Id ?? Guid.NewGuid(),
-                        ProductId = productId
-                    });
-            }
-
-            dbm.Index = dbm.Index;
-            if (updateModel.Res)
-            {
-            }
-
-            return dbm;
-        }
-
-        /// <summary>
-        /// get res
-        /// </summary>
-        /// <param name="id">商品id</param>
-        public Dictionary<string, Res.ProductRes> GetRes(Guid id)
-        {
-            var q = from it in db.Product_Res
-                    where it.OwnerId == id
-                    select it;
-
-            return q.ToDictionary(
-                dbm => dbm.Language, 
-                dbm => WrapProductRes(dbm)
-                );
-        }
-
-        private Res.ProductRes WrapProductRes(Product_Res dbm)
-        {
-            return new Res.ProductRes
-            {
-                Name = dbm.Name,
-                Desc = dbm.Desc
-            };
-        }
-
-        /// <summary>
-        /// 更新商品基本属性.
-        /// </summary>
-        /// <param name="resMap"></param>
-        public void UpdateRes(Guid id,Dictionary<string, Res.ProductRes> resMap)
-        {
-            ThrowHelper.ThrowNullArgument(resMap, nameof(resMap));
-
-            foreach (var pair in resMap)
-            {
-                var dbm = db.Product_Res.Find(id, pair.Key);
-                if (dbm == null)
-                {
-                    dbm = new Product_Res()
-                    {
-                        OwnerId = id,
-                        Language = pair.Key
-                    };
-
-                    db.Product_Res.Add(dbm);
-                }
-
-                dbm.Name = pair.Value.Name;
-                dbm.Desc = pair.Value.Desc;
-            }
 
             db.SaveChanges();
         }
@@ -206,7 +106,7 @@ namespace Airbest.Products
         }
 
         /// <summary>
-        /// TODO: 查询商品列表
+        /// 查询商品列表
         /// </summary>
         /// <returns></returns>
         public QueryResult<Product> GetResult(ProductQueryFilter filter)
