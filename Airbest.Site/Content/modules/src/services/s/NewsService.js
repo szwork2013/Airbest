@@ -48,4 +48,3 @@ var app;
         services.$module.service("$news", NewsService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=NewsService.js.map

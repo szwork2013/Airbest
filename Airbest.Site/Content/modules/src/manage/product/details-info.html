@@ -4,12 +4,13 @@
     <form class="form" name="form" ng-submit="form.$valid && !form.$pending && ctrl.submit()" novalidate>
 
         <div class="form-group">
-            <div class="group-label">展示名</div>
-            <div class="group-content">
-                <div class="input-group" ng-repeat="lang in ctrl.langs">
+            <div class="group-label">展示名22</div>
+            <div class="group-content" ng-if="ctrl.model">
+                <res-group name="name" model="ctrl.model" placeholder="产品的展示名称"></res-group>
+                <!--<div class="input-group" ng-repeat="lang in ctrl.langs">
                     <div class="input-group-addon">{{lang.name}}</div>
                     <input name="name" type="text" class="form-control" ng-model="ctrl.model[lang.code].name" />
-                </div>
+                </div>-->
                 <p class="help-block">产品的展示名称</p>
             </div>
         </div>

@@ -1,0 +1,5 @@
+﻿<div class="res-group">
+    <div class="input-wrapper" ng-repeat="lang in ctrl.langs">
+        <input type="text" class="form-control" ng-model="ctrl.model[lang.code][ctrl.name]"placeholder="{{ctrl.placeholder}} #{{lang.name}}" />
+    </div>
+</div>

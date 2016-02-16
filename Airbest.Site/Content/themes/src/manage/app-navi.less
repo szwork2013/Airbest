@@ -1,0 +1,51 @@
+﻿
+html {
+    height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", STHeiti, "Microsoft YaHei";
+
+    & > .app-view {
+        flex: 1;
+        overflow: hidden;
+        overflow: auto;
+    }
+}
+
+.app-navi {
+    background-color: @brand-primary;
+    color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 15px;
+    box-sizing: content-box;
+    .clearfix();
+
+    display: none;
+
+    & > .menu{
+        .clearfix();
+        float: left;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li{
+            float: left;
+            & > a{
+                display: block;
+                padding: 1em 2em;
+                text-decoration: none;
+                color: #fff;
+            }
+
+            &:hover{
+                background-color: darken(@brand-primary, 6%);;
+            }
+        }
+    }
+}

@@ -37,4 +37,3 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsBaseController.js.map

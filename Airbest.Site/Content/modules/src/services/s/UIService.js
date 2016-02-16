@@ -48,4 +48,3 @@ var app;
         services.$module.service("$ui", UIService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=UIService.js.map

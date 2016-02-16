@@ -38,4 +38,3 @@ var app;
         services.$module.service("$mailGroup", MainGroupService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=MailGroupService.js.map

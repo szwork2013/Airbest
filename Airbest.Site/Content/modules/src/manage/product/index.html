@@ -1,6 +1,7 @@
 ﻿
-<div class="view">
+<div class="view h">
     <div class="container">
+        <a href="product/create" class="btn btn-primary">添加商品</a>
         <ol>
             <li ng-repeat="item in ctrl.products">
                 <a ng-href="product/details?id={{item.id}}">{{item.name}}</a>

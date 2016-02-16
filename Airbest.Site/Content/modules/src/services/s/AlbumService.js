@@ -57,4 +57,3 @@ var app;
         services.$module.service("$album", AlbumService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=AlbumService.js.map

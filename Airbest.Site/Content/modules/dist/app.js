@@ -97,7 +97,7 @@ var app;
         utils.RouteTable = RouteTable;
     })(utils = app.utils || (app.utils = {}));
 })(app || (app = {}));
-//# sourceMappingURL=RouteTable2.js.map
+
 var app;
 (function (app) {
     var services;
@@ -105,7 +105,7 @@ var app;
         services.$module = angular.module("app.services", []);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=module.js.map
+
 var app;
 (function (app) {
     var services;
@@ -125,7 +125,7 @@ var app;
         });
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=defaultImgFilter.js.map
+
 var app;
 (function (app) {
     var services;
@@ -163,7 +163,7 @@ var app;
         });
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=descFilter.js.map
+
 var app;
 (function (app) {
     var services;
@@ -226,7 +226,7 @@ var app;
         services.$module.service("$favorite", FavoriteService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=FavoriteService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -352,7 +352,7 @@ var app;
         services.$module.service("$orderRefund", OrderRefundService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=OrderRefundService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -411,7 +411,7 @@ var app;
         services.$module.service("$zan", ZanService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=ZanService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -560,7 +560,7 @@ var app;
         services.$module.service("$product", ProductService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=ProductService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -620,7 +620,7 @@ var app;
         services.$module.service("$album", AlbumService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=AlbumService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -634,7 +634,7 @@ var app;
         services.$module.controller("$article", ArticleService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=ArticleService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -721,7 +721,7 @@ var app;
         services.$module.service("$identity", IdentityService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=IdentityService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -762,7 +762,7 @@ var app;
         services.$module.service("$mailGroup", MainGroupService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=MailGroupService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -849,7 +849,7 @@ var app;
         services.$module.service("$member", MemberService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=MemberService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -900,7 +900,7 @@ var app;
         services.$module.service("$news", NewsService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=NewsService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -971,7 +971,7 @@ var app;
         services.$module.service("$order", OrderService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=OrderService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -1004,7 +1004,7 @@ var app;
         });
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=SessionService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -1178,7 +1178,7 @@ var app;
         services.$module.service("$shoppingcart", ShoppingcartService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=ShoppingcartService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -1245,7 +1245,7 @@ var app;
         services.$module.service("$shop", ShopService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=ShopService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -1296,7 +1296,7 @@ var app;
         services.$module.service("$ui", UIService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=UIService.js.map
+
 var app;
 (function (app) {
     var services;
@@ -1341,7 +1341,7 @@ var app;
         services.$module.service("$verify", VerifyService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=VerifyService.js.map
+
 var app;
 (function (app) {
     var directives;
@@ -1615,24 +1615,6 @@ var app;
 (function (app) {
     var directives;
     (function (directives) {
-        directives.$module.directive("toggleClass", function () {
-            return {
-                restrict: 'A',
-                link: function (scope, el, attrs) {
-                    var className = attrs["toggleClass"];
-                    el.on("click", function (e) {
-                        el.toggleClass(className);
-                    });
-                }
-            };
-        });
-    })(directives = app.directives || (app.directives = {}));
-})(app || (app = {}));
-//# sourceMappingURL=toggle-class.js.map
-var app;
-(function (app) {
-    var directives;
-    (function (directives) {
         directives.$module.directive("validatorEquals", function ($http, $q) {
             return {
                 require: 'ngModel',
@@ -1741,6 +1723,24 @@ var app;
     })(directives = app.directives || (app.directives = {}));
 })(app || (app = {}));
 //# sourceMappingURL=UserNameNotExists.js.map
+var app;
+(function (app) {
+    var directives;
+    (function (directives) {
+        directives.$module.directive("toggleClass", function () {
+            return {
+                restrict: 'A',
+                link: function (scope, el, attrs) {
+                    var className = attrs["toggleClass"];
+                    el.on("click", function (e) {
+                        el.toggleClass(className);
+                    });
+                }
+            };
+        });
+    })(directives = app.directives || (app.directives = {}));
+})(app || (app = {}));
+//# sourceMappingURL=toggle-class.js.map
 var app;
 (function (app) {
     app.$module = angular.module("app", ["app.services", "app.bmap", "app.directives", "ngRoute", "ngMessages", "plupload.module"]);
@@ -4092,8 +4092,8 @@ var app;
         manage.$module.controller("ManageJsonHomeNaviController", ManageJsonIndexController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=module.js.map
-//# sourceMappingURL=IndexController.js.map
+
+
 var app;
 (function (app) {
     var manage;
@@ -4116,7 +4116,7 @@ var app;
         manage.$module.controller("ManageProductCreateController", ManageProductCreateController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=CreateController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4156,7 +4156,7 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsBaseController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4231,7 +4231,7 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsChartsController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4258,7 +4258,7 @@ var app;
         manage.$module.controller("ManageProductDetailsController", ManageProductDetailsController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4306,7 +4306,7 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsInfoController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4419,7 +4419,7 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsPropertiesController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4506,7 +4506,7 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsSkusController.js.map
+
 var app;
 (function (app) {
     var manage;
@@ -4529,4 +4529,63 @@ var app;
         manage.$module.controller("ManageProductIndexController", ManageProductIndexController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=IndexController.js.map
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageAppNaviController = (function () {
+            function ManageAppNaviController() {
+            }
+            return ManageAppNaviController;
+        }());
+        manage.ManageAppNaviController = ManageAppNaviController;
+        manage.$module.directive("appNavi", function () {
+            return {
+                restrict: "E",
+                replace: true,
+                templateUrl: "/Content/modules/src/manage/_partials/app-navi/app-navi.html?v=" + buildNumber,
+                scope: {},
+                controller: ManageAppNaviController,
+                controllerAs: "ctrl"
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageResGroupController = (function () {
+            function ManageResGroupController($scope) {
+                this.model = null;
+                this.langs = [
+                    { name: "简", code: "cmn-Hans" },
+                    { name: "繁", code: "cmn-Hant" },
+                    { name: "英", code: "eng" },
+                    { name: "德", code: "deu" }
+                ];
+                this.name = $scope["name"];
+                this.model = $scope["model"];
+                this.placeholder = $scope["placeholder"];
+            }
+            return ManageResGroupController;
+        }());
+        manage.ManageResGroupController = ManageResGroupController;
+        manage.$module.directive("resGroup", function () {
+            return {
+                restrict: "E",
+                replace: true,
+                templateUrl: "/Content/modules/src/manage/_partials/res-group/res-group.html?v=" + buildNumber,
+                scope: {
+                    name: "@",
+                    placeholder: "@",
+                    model: "=",
+                },
+                controller: ManageResGroupController,
+                controllerAs: "ctrl"
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));

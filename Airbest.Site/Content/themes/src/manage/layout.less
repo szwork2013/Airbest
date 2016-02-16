@@ -1,0 +1,62 @@
+﻿
+.form-control{
+    border-radius: 0;
+}
+
+.app-view{
+    display: flex;
+    flex-direction: column;
+
+    & > .view{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        flex: 1;
+
+        & > .view-aside{
+            background-color: #ddd;
+            width: 15em;
+            box-sizing: content-box;
+
+            & > h4{
+                margin: 0;
+                padding: 1.5rem;
+                background-color: @brand-primary;
+                color: #fff;
+            }
+
+            & > .menu{
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                & > li{
+                    cursor: pointer;
+
+                    & > a{
+                        display: block;
+                        padding: 1rem 1.5rem;
+                        text-decoration: none;
+                        color: @text-color;
+                    }
+
+                    &.active{
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+
+        & > .view-body{
+            flex: 1;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            overflow-y: auto;
+            box-sizing: content-box;
+            padding: 1.5rem;
+            position: relative;
+        }
+    }
+}

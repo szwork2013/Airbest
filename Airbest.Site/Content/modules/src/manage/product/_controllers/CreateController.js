@@ -20,4 +20,3 @@ var app;
         manage.$module.controller("ManageProductCreateController", ManageProductCreateController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=CreateController.js.map

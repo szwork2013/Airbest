@@ -687,6 +687,8 @@
     <Content Include="Content\modules\src\manage\product\_controllers\IndexController.js">
       <DependentUpon>IndexController.ts</DependentUpon>
     </Content>
+    <Content Include="Content\modules\src\manage\_partials\app-navi\app-navi.html" />
+    <Content Include="Content\modules\src\manage\_partials\res-group\res-group.html" />
     <Content Include="Content\modules\src\services\defaultImg\defaultImgFilter.js">
       <DependentUpon>defaultImgFilter.ts</DependentUpon>
     </Content>
@@ -1096,6 +1098,9 @@
     <Content Include="Content\modules\src\manage\product\_controllers\IndexController.js.map">
       <DependentUpon>IndexController.js</DependentUpon>
     </Content>
+    <Content Include="Content\themes\src\manage\app-navi.less" />
+    <Content Include="Content\themes\src\manage\layout.less" />
+    <Content Include="Content\themes\src\manage\res-group.less" />
     <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\domReady.js" />
@@ -1168,11 +1173,11 @@
     <Folder Include="Content\modules\src\main\" />
     <Folder Include="Content\modules\src\manage\product\category\_controllers\" />
     <Folder Include="Content\modules\src\manage\product\series\_controllers\" />
+    <Folder Include="Content\modules\src\manage\product\_partials\" />
     <Folder Include="Content\modules\src\services\address\" />
     <Folder Include="Content\modules\src\services\BMap\" />
     <Folder Include="Content\themes\res\" />
     <Folder Include="Content\themes\src\app\" />
-    <Folder Include="Content\themes\src\manage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1201,6 +1206,8 @@
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\IndexController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\_partials\app-navi\AppNaviController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\_partials\res-group\ResGroup.ts" />
     <TypeScriptCompile Include="Content\modules\src\services\defaultImg\defaultImgFilter.ts" />
     <TypeScriptCompile Include="Content\modules\src\services\desc\descFilter.ts" />
     <TypeScriptCompile Include="Content\modules\src\services\Members\FavoriteService.ts" />

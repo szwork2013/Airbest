@@ -110,4 +110,3 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-//# sourceMappingURL=DetailsPropertiesController.js.map

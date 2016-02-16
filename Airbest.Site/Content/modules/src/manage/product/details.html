@@ -1,23 +1,26 @@
 ﻿
 <div class="view">
-    <div class="container">
-
-        <!--Tab头-->
-        <ul class="nav nav-tabs">
+    <div class="view-aside">
+        <h4>{{ctrl.product.name}}</h4>
+        <ol class="menu">
             <li ng-class="{active:ctrl.tab == 'base'}"><a ng-click="ctrl.tab = 'base'">基本信息</a></li>
             <li ng-class="{active:ctrl.tab == 'info'}"><a ng-click="ctrl.tab = 'info'">展示信息</a></li>
             <li ng-class="{active:ctrl.tab == 'skus'}"><a ng-click="ctrl.tab = 'skus'">型号规格</a></li>
             <li ng-class="{active:ctrl.tab == 'properties'}"><a ng-click="ctrl.tab = 'properties'">技术规格</a></li>
-            <li ng-class="{active:ctrl.tab == 'charts'}"><a ng-click="ctrl.tab = 'charts'">图表</a></li>
-        </ul>
+        </ol>
+    </div>
 
+    <div class="view-body">
+        <div class="view-header">
+        </div>
+
+        <div class="view-body"></div>
         <!--Tab内容-->
         <div ng-if="ctrl.product">
             <div ng-show="ctrl.tab == 'base'"><product-details-base product="ctrl.product" /></div>
             <div ng-show="ctrl.tab == 'info'"><product-details-info product="ctrl.product" /></div>
             <div ng-show="ctrl.tab == 'skus'"><product-details-skus product="ctrl.product" /></div>
             <div ng-show="ctrl.tab == 'properties'"><product-details-properties product="ctrl.product" /></div>
-            <div ng-show="ctrl.tab == 'charts'"><product-details-charts product="ctrl.product" /></div>
         </div>
     </div>
 </div>

@@ -171,4 +171,3 @@ var app;
         services.$module.service("$shoppingcart", ShoppingcartService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=ShoppingcartService.js.map

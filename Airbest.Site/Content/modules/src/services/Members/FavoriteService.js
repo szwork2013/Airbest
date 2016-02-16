@@ -60,4 +60,3 @@ var app;
         services.$module.service("$favorite", FavoriteService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-//# sourceMappingURL=FavoriteService.js.map
