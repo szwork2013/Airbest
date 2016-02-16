@@ -45,3 +45,4 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
+//# sourceMappingURL=DetailsInfoController.js.map

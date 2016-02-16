@@ -64,3 +64,4 @@ var app;
         services.$module.service("$shop", ShopService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=ShopService.js.map

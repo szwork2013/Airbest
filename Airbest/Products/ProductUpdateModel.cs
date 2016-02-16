@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airbest.Products.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

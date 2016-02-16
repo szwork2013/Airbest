@@ -16,6 +16,7 @@ namespace Airbest.Db
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<ProductProperty> ProductProperties { get; set; }
         public virtual DbSet<ProductPropertyCategory> ProductPropertyCategories { get; set; }
+        public virtual DbSet<ProductPropertyItem> ProductPropertyItems { get; set; }
         public virtual DbSet<ProductSpecial> ProductSpecials { get; set; }
         public virtual DbSet<ProductSpecialItem> ProductSpecialItems { get; set; }
         public virtual DbSet<TextRes> TextRes { get; set; }

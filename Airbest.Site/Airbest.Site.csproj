@@ -242,6 +242,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\Products\ProductController.cs" />
     <Compile Include="Controllers\Api\Languages\TextResController.cs" />
+    <Compile Include="Controllers\Api\Products\ProductPropertyController.cs" />
     <Compile Include="Controllers\Api\Products\ProductSpecialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -255,6 +256,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Airbest.dll" />
+    <Content Include="bin\Airbest.Site.dll" />
+    <Content Include="bin\Huajie.Practices.dll" />
     <Content Include="bower_components\angular-animate\angular-animate.js" />
     <Content Include="bower_components\angular-animate\angular-animate.min.js" />
     <Content Include="bower_components\angular-animate\index.js" />
@@ -642,6 +646,7 @@
     <Content Include="bower_components\velocity\velocity.min.js" />
     <Content Include="bower_components\velocity\velocity.ui.js" />
     <Content Include="bower_components\velocity\velocity.ui.min.js" />
+    <Content Include="Content\modules\dist\app.js" />
     <Content Include="Content\modules\src\manage\json\home-navi.html" />
     <Content Include="Content\modules\src\manage\json\index.html" />
     <Content Include="Content\modules\src\manage\json\IndexController.js">
@@ -652,11 +657,36 @@
     </Content>
     <Content Include="Content\modules\src\manage\product\category\index.html" />
     <Content Include="Content\modules\src\manage\product\details-info.html" />
+    <Content Include="Content\modules\src\manage\product\details-charts.html" />
     <Content Include="Content\modules\src\manage\product\details-properties.html" />
     <Content Include="Content\modules\src\manage\product\details-base.html" />
     <Content Include="Content\modules\src\manage\product\details-skus.html" />
     <Content Include="Content\modules\src\manage\product\details.html" />
     <Content Include="Content\modules\src\manage\product\index.html" />
+    <Content Include="Content\modules\src\manage\product\_controllers\CreateController.js">
+      <DependentUpon>CreateController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.js">
+      <DependentUpon>DetailsBaseController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsChartsController.js">
+      <DependentUpon>DetailsChartsController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsController.js">
+      <DependentUpon>DetailsController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.js">
+      <DependentUpon>DetailsInfoController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.js">
+      <DependentUpon>DetailsPropertiesController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.js">
+      <DependentUpon>DetailsSkusController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\IndexController.js">
+      <DependentUpon>IndexController.ts</DependentUpon>
+    </Content>
     <Content Include="Content\modules\src\services\defaultImg\defaultImgFilter.js">
       <DependentUpon>defaultImgFilter.ts</DependentUpon>
     </Content>
@@ -715,6 +745,10 @@
     <Content Include="Content\themes\dist\app.css" />
     <Content Include="Content\themes\dist\app.min.css">
       <DependentUpon>app.css</DependentUpon>
+    </Content>
+    <Content Include="Content\themes\dist\base.css" />
+    <Content Include="Content\themes\dist\base.min.css">
+      <DependentUpon>base.css</DependentUpon>
     </Content>
     <Content Include="Content\themes\dist\manage.css" />
     <Content Include="Content\themes\dist\manage.min.css">
@@ -1041,6 +1075,28 @@
     <Content Include="Content\themes\src\base.less" />
     <Content Include="Content\modules\src\manage\product\series\index.html" />
     <Content Include="Content\modules\src\manage\product\create.html" />
+    <Content Include="Content\modules\src\manage\product\_controllers\CreateController.js.map">
+      <DependentUpon>CreateController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.js.map">
+      <DependentUpon>DetailsBaseController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsController.js.map">
+      <DependentUpon>DetailsController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.js.map">
+      <DependentUpon>DetailsInfoController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.js.map">
+      <DependentUpon>DetailsPropertiesController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.js.map">
+      <DependentUpon>DetailsSkusController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\_controllers\IndexController.js.map">
+      <DependentUpon>IndexController.js</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\domReady.js" />
     <Content Include="Scripts\handlebars-v3.0.0.js" />
@@ -1108,7 +1164,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\modules\DefinitelyTyped\" />
-    <Folder Include="Content\modules\dist\" />
     <Folder Include="Content\modules\src\directives\" />
     <Folder Include="Content\modules\src\main\" />
     <Folder Include="Content\modules\src\manage\product\category\_controllers\" />
@@ -1142,6 +1197,7 @@
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsChartsController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\IndexController.ts" />

@@ -11,6 +11,23 @@ namespace Airbest.Db
     {
         public Guid Id { get; set; }
 
+        public Guid? ProductId { get; set; }
+
         public int Index { get; set; }
+
+        [StringLength(50)]
+        public string Type { get; set; }
+
+
+        public string Name { get; set; }
+
+        public string Desc { get; set; }
+
+
+        [StringLength(50)]
+        public string Unit1 { get; set; }
+
+        [StringLength(50)]
+        public string Unit2 { get; set; }
     }
 }

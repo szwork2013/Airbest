@@ -42,3 +42,4 @@ var app;
         services.$module.service("$verify", VerifyService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=VerifyService.js.map

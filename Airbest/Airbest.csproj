@@ -61,6 +61,7 @@
     <Compile Include="Db\ProductCategory.cs" />
     <Compile Include="Db\ProductProperty.cs" />
     <Compile Include="Db\ProductPropertyCategory.cs" />
+    <Compile Include="Db\ProductPropertyItem.cs" />
     <Compile Include="Db\ProductSpecial.cs" />
     <Compile Include="Db\ProductSpecialItem.cs" />
     <Compile Include="Db\TextRes.cs" />
@@ -73,11 +74,11 @@
     <Compile Include="Products\ProductQueryIncludes.cs" />
     <Compile Include="Products\ProductService.cs" />
     <Compile Include="Products\ProductUpdateModel.cs" />
-    <Compile Include="Products\Properties\ChartProperty.cs" />
-    <Compile Include="Products\Properties\ProductProperty.cs" />
-    <Compile Include="Products\Properties\ProductPropertyService.cs" />
-    <Compile Include="Products\Properties\RangePropery.cs" />
-    <Compile Include="Products\Properties\ScalarProperty.cs" />
+    <Compile Include="Products\Properties\PropertyQueryIncludes.cs" />
+    <Compile Include="Products\Properties\PropertyQueryFilter.cs" />
+    <Compile Include="Products\Properties\PropertyService.cs" />
+    <Compile Include="Products\Properties\PropertyItem.cs" />
+    <Compile Include="Products\Properties\Property.cs" />
     <Compile Include="Products\Specials\Special.cs" />
     <Compile Include="Products\Specials\SpecialItem.cs" />
     <Compile Include="Products\Specials\SpecialQueryFilter.cs" />
@@ -97,7 +98,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Products\Res\" />
     <Folder Include="Res\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

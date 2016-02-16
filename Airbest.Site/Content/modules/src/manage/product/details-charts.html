@@ -28,48 +28,16 @@
                     <button type="button" ng-click="ctrl.remove(prop, ctrl.props)">删除</button>
                 </div>
             </div>
-            <div class="row form-group">
-                <div class="col-xs-3">
-                    <select type="text" class="form-control" name="type" ng-model="prop.type">
-                        <option value="scalar">标量</option>
-                        <option value="range">范围</option>
-                        <option value="chart">图表</option>
-                        <option value="text">文本</option>
-                    </select>
-                </div>
-                <div class="col-xs-9">
-                    <div ng-if="prop.type == 'scalar' || prop.type == 'range'">
-                        <input type="text" style="width:6em" class="form-control" ng-model="prop.unit1" placeholder="单位" />
-                    </div>
-                    <div class="form-inline" ng-if="prop.type == 'chart'">
-                        <input type="text" style="width:6em" class="form-control" ng-model="prop.unit1" placeholder="单位X" />
-                        <input type="text" style="width:6em" class="form-control" ng-model="prop.unit2" placeholder="单位Y" />
-                    </div>
-                </div>
-            </div>
 
             <div class="values">
                 <div class="row form-group" ng-repeat="item in prop.items">
                     <div class="col-xs-3 group-label">
-                        <input class="form-control" placeholder="型号" ng-model="item.model" />
+                        <input class="form-control" placeholder="规格值" ng-model="item.name" />
                     </div>
                     <div class="col-xs-7 group-content">
-                        <div class="form-inline" ng-if="prop.type == 'scalar'">
-                            <input type="text" style="width:6em" class="form-control" ng-model="item.float1" placeholder="数值" />
-                        </div>
-                        <div class="form-inline" ng-if="prop.type == 'range'">
-                            <input type="text" style="width:6em" class="form-control" ng-model="item.float1" placeholder="数值" />
-                            到 <input type="text" style="width:6em" class="form-control" ng-model="item.float2" placeholder="数值" />
-                            最大 <input type="text" style="width:6em" class="form-control" ng-model="item.float3" placeholder="最大" />
-                        </div>
-                        <div class="form-inline" ng-if="prop.type == 'text'">
-                            <div class="input-group" ng-repeat="lang in ctrl.langs">
-                                <div class="input-group-addon">{{lang.name}}</div>
-                                <input type="text" class="form-control" ng-model="item.res[lang.code].text" placeholder="文本值" />
-                            </div>
-                        </div>
-                        <div ng-if="prop.type == 'chart'">
-                            <textarea ng-model="item.data" rows="2" class="form-control"></textarea>
+                        <div class="input-group" ng-repeat="lang in ctrl.langs">
+                            <div class="input-group-addon">{{lang.name}}</div>
+                            <input type="text" class="form-control" ng-model="item.res[lang.code].desc" placeholder="值说明" />
                         </div>
                     </div>
                     <div class="col-xs-2 text-right">
@@ -82,7 +50,7 @@
             </div>
             <hr />
         </div>
-        <button type="button" class="btn btn-default" ng-click="ctrl.addProp()">添加规格</button>
+        <button type="button" class="btn btn-default" ng-click="ctrl.addSpecial()">添加规格</button>
         <hr />
         <div class="form-footer">
             <div class="btn-group btn-group-justified">

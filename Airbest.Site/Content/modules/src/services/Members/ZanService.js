@@ -56,3 +56,4 @@ var app;
         services.$module.service("$zan", ZanService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=ZanService.js.map
