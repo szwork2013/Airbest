@@ -27,7 +27,7 @@ module app.manage {
 
     $module.directive("productDetailsBase", function () {
         return {
-            templateUrl: "/Content/modules/src/manage/product/details-base.html",
+            templateUrl: "/Content/modules/src/manage/product/details-base.html?v=" + buildNumber,
             restrict: "E",
             replace: true,
             controller: ManageProductDetailsBaseController,

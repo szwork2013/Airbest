@@ -1,12 +1,52 @@
 ﻿
-.res-group{
-    .form-control{
+res-group,
+.res-group {
+    position: relative;
+    display: block;
+
+    .form-control {
         display: block;
+        background-color: #ffffdd;
     }
 
-    .input-wrapper + .input-wrapper{
-        .form-control{
+    .input-wrapper + .input-wrapper {
+        .form-control {
             border-top: 0;
+        }
+    }
+
+    &.folding .if-default,
+    &:not(.folding) .if-folding {
+        display: none;
+    }
+
+    .input-wrapper:not(:last-child){
+        .form-control{
+            border-bottom-style: dashed;
+        }
+    }
+
+    &.folding {
+        .input-wrapper + .input-wrapper {
+            height: 0;
+            overflow: hidden;
+            visibility: hidden;
+        }
+
+        .form-control{
+            border-style: solid !important;
+            background-color: #ffffdd;
+        }
+    }
+
+    .folding-toggle {
+        position: absolute;
+        right: 6px;
+        top: 6px;
+
+        .label{
+            font-weight: normal;
+            cursor: pointer;
         }
     }
 }

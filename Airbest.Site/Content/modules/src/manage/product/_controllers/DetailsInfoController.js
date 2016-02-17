@@ -8,7 +8,7 @@ var app;
                 this.$location = $location;
                 this.$scope = $scope;
                 this.$product = $product;
-                this.model = null;
+                this.model = { res: null };
                 this.product = null;
                 this.langs = [
                     { name: "简体", code: "cmn-Hans" },
@@ -18,14 +18,14 @@ var app;
                 ];
                 this.product = $scope["product"];
                 this.$product.getRes(this.product.id).then(function (r) {
-                    _this.model = r;
+                    _this.model.res = r;
                     _.forEach(_this.langs, function (lang) {
-                        _this.model[lang.code] = _this.model[lang.code] || {};
+                        _this.model.res[lang.code] = _this.model.res[lang.code] || {};
                     });
                 });
             }
             ManageProductDetailsInfoController.prototype.submit = function () {
-                this.$product.updateRes(this.product.id, this.model).then(function (r) {
+                this.$product.updateRes(this.product.id, this.model.res).then(function (r) {
                     alert("更新成功");
                 });
             };
@@ -33,7 +33,7 @@ var app;
         }());
         manage.$module.directive("productDetailsInfo", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-info.html",
+                templateUrl: "/Content/modules/src/manage/product/details-info.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductDetailsInfoController,

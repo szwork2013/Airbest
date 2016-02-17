@@ -33,7 +33,7 @@ module app.manage {
             if (!confirm("确认要保存对型号规格的修改吗?"))
                 return;
 
-            this.updateIndex();
+            this.updateIndexAndData();
 
             let u = "/api/product/property/replace-all";
             let f = { productId: this.product.id };
@@ -41,21 +41,41 @@ module app.manage {
                 return this.load();
             });
 
-            this.$ui.lockFor("正在保存", q);
+            this.$ui.lockFor("正在保存", q).then(r => {
+                alert("保存成功");
+            });;
+        }
+
+        public initChartProp(prop) {
+            prop.xData = prop.xData || "0,10,20,30,40,50,60,70,80,90";
+            if (!prop._xArr) {
+                prop._xArr = prop.xData.split(",");
+            }
+        }
+
+        public initChartItem(item) {
+            if (!item._arr) {
+                item._arr = item.data ? item.data.split(",") : [];
+            }
         }
 
         /**
          * updateIndex:
          *      更新列表的index属性
          */
-        public updateIndex() {
+        public updateIndexAndData() {
             // props
             _.forEach<any>(this.props, (prop, i) => {
                 prop.index = i;
+                if (prop.type == 'chart') {
+                    prop.xData = prop._xArr && prop._xArr.join(',');
+                }
 
                 // items
                 _.forEach<any>(prop.items || [], (item, ii) => {
                     item.index = ii;
+                    if (prop.type == 'chart')
+                        item.data = item._arr && item._arr.join(',');
                 });
             });
         }
@@ -112,7 +132,7 @@ module app.manage {
 
     $module.directive("productDetailsProperties", function () {
         return {
-            templateUrl: "/Content/modules/src/manage/product/details-properties.html",
+            templateUrl: "/Content/modules/src/manage/product/details-properties.html?v=" + buildNumber,
             restrict: "E",
             replace: true,
             controller: ManageProductPropertiesInfoController,

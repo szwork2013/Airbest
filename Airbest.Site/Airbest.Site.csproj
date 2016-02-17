@@ -1068,9 +1068,6 @@
     <Content Include="Content\modules\src\services\s\VerifyService.js.map">
       <DependentUpon>VerifyService.js</DependentUpon>
     </Content>
-    <Content Include="Content\modules\src\bmap\module.js.map">
-      <DependentUpon>module.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Content\themes\src\manage.less" />
     <Content Include="Content\themes\src\app.less" />
@@ -1101,6 +1098,11 @@
     <Content Include="Content\themes\src\manage\app-navi.less" />
     <Content Include="Content\themes\src\manage\layout.less" />
     <Content Include="Content\themes\src\manage\res-group.less" />
+    <Content Include="Content\themes\src\manage\form.less" />
+    <Content Include="Content\themes\src\manage\product\form-product-properties.less" />
+    <Content Include="Content\modules\src\manage\product\_controllers\DetailsChartsController.js.map">
+      <DependentUpon>DetailsChartsController.js</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\domReady.js" />
@@ -1169,6 +1171,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\modules\DefinitelyTyped\" />
+    <Folder Include="Content\modules\src\bmap\" />
     <Folder Include="Content\modules\src\directives\" />
     <Folder Include="Content\modules\src\main\" />
     <Folder Include="Content\modules\src\manage\product\category\_controllers\" />
@@ -1229,6 +1232,7 @@
     <TypeScriptCompile Include="Content\modules\src\services\s\VerifyService.ts" />
     <TypeScriptCompile Include="Content\modules\src\utils\IApiResult.ts" />
     <TypeScriptCompile Include="Content\modules\src\utils\RouteTable2.ts" />
+    <TypeScriptCompile Include="Content\modules\src\utils\test.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

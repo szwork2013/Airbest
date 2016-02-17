@@ -9,7 +9,8 @@ module app.manage {
         constructor(
             private $location: ng.ILocationService,
             private $scope: ng.IScope,
-            private $product: app.services.ProductService
+            private $product: app.services.ProductService,
+            private $ui: app.services.UIService
         ) {
             this.langs = [
                 { name: "简体", code: "cmn-Hans" },
@@ -32,9 +33,12 @@ module app.manage {
                     });
                 });
 
-                this.$product.updateSpecials(this.product.id, this.specials).then(r => {
-                    alert("型号更新成功");
-                    this.load();
+                var q = this.$product.updateSpecials(this.product.id, this.specials).then(r => {
+                    return this.load();
+                });
+
+                this.$ui.lockFor("正在保存", q).then(r => {
+                    alert("保存成功");
                 });
             }
         }
@@ -44,7 +48,7 @@ module app.manage {
                 productId: this.product.id,
                 includes: "res,items"
             };
-            this.$product.getSpecials(filter).then(r => {
+            return this.$product.getSpecials(filter).then(r => {
                 this.specials = r.data;
             });
         }
@@ -81,7 +85,7 @@ module app.manage {
 
     $module.directive("productDetailsSkus", function () {
         return {
-            templateUrl: "/Content/modules/src/manage/product/details-skus.html",
+            templateUrl: "/Content/modules/src/manage/product/details-skus.html?v=" + buildNumber,
             restrict: "E",
             replace: true,
             controller: ManageProductSkusInfoController,

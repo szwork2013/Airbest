@@ -1,5 +1,9 @@
-﻿<div class="res-group">
-    <div class="input-wrapper" ng-repeat="lang in ctrl.langs">
-        <input type="text" class="form-control" ng-model="ctrl.model[lang.code][ctrl.name]"placeholder="{{ctrl.placeholder}} #{{lang.name}}" />
-    </div>
+﻿
+<div class="folding-toggle">
+    <span class="label label-success" 
+          ng-class="{ 'label-success': ctrl.filledCount() == 4, 'label-danger': ctrl.filledCount() != 4 }">{{ctrl.filledCount()}}/4</span>
+</div>
+<div class="input-wrapper" ng-repeat="lang in ctrl.langs">
+    <input ng-if="ctrl.type == 'text'" type="text" class="form-control" ng-model="ctrl.model.res[lang.code][ctrl.name]" placeholder="{{ctrl.placeholder}}, #{{lang.name}}" />
+    <textarea ng-if="ctrl.type == 'textarea'" rows="{{ctrl.rows}}" type="text" class="form-control" ng-model="ctrl.model.res[lang.code][ctrl.name]" placeholder="{{ctrl.placeholder}}, #{{lang.name}}"></textarea>
 </div>

@@ -3,10 +3,11 @@ var app;
     var manage;
     (function (manage) {
         var ManageProductSkusInfoController = (function () {
-            function ManageProductSkusInfoController($location, $scope, $product) {
+            function ManageProductSkusInfoController($location, $scope, $product, $ui) {
                 this.$location = $location;
                 this.$scope = $scope;
                 this.$product = $product;
+                this.$ui = $ui;
                 this.product = null;
                 this.specials = null;
                 this.langs = [
@@ -28,9 +29,11 @@ var app;
                             item.index = ii;
                         });
                     });
-                    this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
-                        alert("型号更新成功");
-                        _this.load();
+                    var q = this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
+                        return _this.load();
+                    });
+                    this.$ui.lockFor("正在保存", q).then(function (r) {
+                        alert("保存成功");
                     });
                 }
             };
@@ -40,7 +43,7 @@ var app;
                     productId: this.product.id,
                     includes: "res,items"
                 };
-                this.$product.getSpecials(filter).then(function (r) {
+                return this.$product.getSpecials(filter).then(function (r) {
                     _this.specials = r.data;
                 });
             };
@@ -72,7 +75,7 @@ var app;
         }());
         manage.$module.directive("productDetailsSkus", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-skus.html",
+                templateUrl: "/Content/modules/src/manage/product/details-skus.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductSkusInfoController,

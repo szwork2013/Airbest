@@ -10,7 +10,7 @@ var app;
                 this.id = null;
                 this.tab = null;
                 this.id = $location.search().id;
-                this.tab = "properties";
+                this.tab = "base";
                 this.load();
             }
             ManageProductDetailsController.prototype.load = function () {

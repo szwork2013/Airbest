@@ -1,7 +1,12 @@
 ﻿
 <div class="view">
     <div class="view-aside">
-        <h4>{{ctrl.product.name}}</h4>
+        <div class="header">
+            <h4>{{ctrl.product.name}}</h4>
+            <a class="back" ng-href="product">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+        </div>
         <ol class="menu">
             <li ng-class="{active:ctrl.tab == 'base'}"><a ng-click="ctrl.tab = 'base'">基本信息</a></li>
             <li ng-class="{active:ctrl.tab == 'info'}"><a ng-click="ctrl.tab = 'info'">展示信息</a></li>

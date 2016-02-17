@@ -28,25 +28,44 @@ var app;
                 var _this = this;
                 if (!confirm("确认要保存对型号规格的修改吗?"))
                     return;
-                this.updateIndex();
+                this.updateIndexAndData();
                 var u = "/api/product/property/replace-all";
                 var f = { productId: this.product.id };
                 var q = this.$http.post(u, this.props, { params: f }).then(function (rsp) {
                     return _this.load();
                 });
-                this.$ui.lockFor("正在保存", q);
+                this.$ui.lockFor("正在保存", q).then(function (r) {
+                    alert("保存成功");
+                });
+                ;
+            };
+            ManageProductPropertiesInfoController.prototype.initChartProp = function (prop) {
+                prop.xData = prop.xData || "0,10,20,30,40,50,60,70,80,90";
+                if (!prop._xArr) {
+                    prop._xArr = prop.xData.split(",");
+                }
+            };
+            ManageProductPropertiesInfoController.prototype.initChartItem = function (item) {
+                if (!item._arr) {
+                    item._arr = item.data ? item.data.split(",") : [];
+                }
             };
             /**
              * updateIndex:
              *      更新列表的index属性
              */
-            ManageProductPropertiesInfoController.prototype.updateIndex = function () {
+            ManageProductPropertiesInfoController.prototype.updateIndexAndData = function () {
                 // props
                 _.forEach(this.props, function (prop, i) {
                     prop.index = i;
+                    if (prop.type == 'chart') {
+                        prop.xData = prop._xArr && prop._xArr.join(',');
+                    }
                     // items
                     _.forEach(prop.items || [], function (item, ii) {
                         item.index = ii;
+                        if (prop.type == 'chart')
+                            item.data = item._arr && item._arr.join(',');
                     });
                 });
             };
@@ -98,7 +117,7 @@ var app;
         }());
         manage.$module.directive("productDetailsProperties", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-properties.html",
+                templateUrl: "/Content/modules/src/manage/product/details-properties.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductPropertiesInfoController,

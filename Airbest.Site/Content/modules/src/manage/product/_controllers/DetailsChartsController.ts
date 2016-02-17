@@ -82,7 +82,7 @@ module app.manage {
 
     $module.directive("productDetailsCharts", function () {
         return {
-            templateUrl: "/Content/modules/src/manage/product/details-charts.html",
+            templateUrl: "/Content/modules/src/manage/product/details-charts.html?v=" + buildNumber,
             restrict: "E",
             replace: true,
             controller: ManageProductDetailsChartsController,

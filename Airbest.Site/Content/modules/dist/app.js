@@ -98,6 +98,25 @@ var app;
     })(utils = app.utils || (app.utils = {}));
 })(app || (app = {}));
 
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+function aa() {
+}
+var TestClass = (function () {
+    function TestClass() {
+    }
+    TestClass = __decorate([
+        aa
+    ], TestClass);
+    return TestClass;
+}());
+exports.TestClass = TestClass;
+
 var app;
 (function (app) {
     var services;
@@ -1615,6 +1634,24 @@ var app;
 (function (app) {
     var directives;
     (function (directives) {
+        directives.$module.directive("toggleClass", function () {
+            return {
+                restrict: 'A',
+                link: function (scope, el, attrs) {
+                    var className = attrs["toggleClass"];
+                    el.on("click", function (e) {
+                        el.toggleClass(className);
+                    });
+                }
+            };
+        });
+    })(directives = app.directives || (app.directives = {}));
+})(app || (app = {}));
+//# sourceMappingURL=toggle-class.js.map
+var app;
+(function (app) {
+    var directives;
+    (function (directives) {
         directives.$module.directive("validatorEquals", function ($http, $q) {
             return {
                 require: 'ngModel',
@@ -1723,24 +1760,6 @@ var app;
     })(directives = app.directives || (app.directives = {}));
 })(app || (app = {}));
 //# sourceMappingURL=UserNameNotExists.js.map
-var app;
-(function (app) {
-    var directives;
-    (function (directives) {
-        directives.$module.directive("toggleClass", function () {
-            return {
-                restrict: 'A',
-                link: function (scope, el, attrs) {
-                    var className = attrs["toggleClass"];
-                    el.on("click", function (e) {
-                        el.toggleClass(className);
-                    });
-                }
-            };
-        });
-    })(directives = app.directives || (app.directives = {}));
-})(app || (app = {}));
-//# sourceMappingURL=toggle-class.js.map
 var app;
 (function (app) {
     app.$module = angular.module("app", ["app.services", "app.bmap", "app.directives", "ngRoute", "ngMessages", "plupload.module"]);
@@ -4144,7 +4163,7 @@ var app;
         }());
         manage.$module.directive("productDetailsBase", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-base.html",
+                templateUrl: "/Content/modules/src/manage/product/details-base.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductDetailsBaseController,
@@ -4219,7 +4238,7 @@ var app;
         }());
         manage.$module.directive("productDetailsCharts", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-charts.html",
+                templateUrl: "/Content/modules/src/manage/product/details-charts.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductDetailsChartsController,
@@ -4244,7 +4263,7 @@ var app;
                 this.id = null;
                 this.tab = null;
                 this.id = $location.search().id;
-                this.tab = "properties";
+                this.tab = "base";
                 this.load();
             }
             ManageProductDetailsController.prototype.load = function () {
@@ -4269,7 +4288,7 @@ var app;
                 this.$location = $location;
                 this.$scope = $scope;
                 this.$product = $product;
-                this.model = null;
+                this.model = { res: null };
                 this.product = null;
                 this.langs = [
                     { name: "简体", code: "cmn-Hans" },
@@ -4279,14 +4298,14 @@ var app;
                 ];
                 this.product = $scope["product"];
                 this.$product.getRes(this.product.id).then(function (r) {
-                    _this.model = r;
+                    _this.model.res = r;
                     _.forEach(_this.langs, function (lang) {
-                        _this.model[lang.code] = _this.model[lang.code] || {};
+                        _this.model.res[lang.code] = _this.model.res[lang.code] || {};
                     });
                 });
             }
             ManageProductDetailsInfoController.prototype.submit = function () {
-                this.$product.updateRes(this.product.id, this.model).then(function (r) {
+                this.$product.updateRes(this.product.id, this.model.res).then(function (r) {
                     alert("更新成功");
                 });
             };
@@ -4294,7 +4313,7 @@ var app;
         }());
         manage.$module.directive("productDetailsInfo", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-info.html",
+                templateUrl: "/Content/modules/src/manage/product/details-info.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductDetailsInfoController,
@@ -4337,25 +4356,44 @@ var app;
                 var _this = this;
                 if (!confirm("确认要保存对型号规格的修改吗?"))
                     return;
-                this.updateIndex();
+                this.updateIndexAndData();
                 var u = "/api/product/property/replace-all";
                 var f = { productId: this.product.id };
                 var q = this.$http.post(u, this.props, { params: f }).then(function (rsp) {
                     return _this.load();
                 });
-                this.$ui.lockFor("正在保存", q);
+                this.$ui.lockFor("正在保存", q).then(function (r) {
+                    alert("保存成功");
+                });
+                ;
+            };
+            ManageProductPropertiesInfoController.prototype.initChartProp = function (prop) {
+                prop.xData = prop.xData || "0,10,20,30,40,50,60,70,80,90";
+                if (!prop._xArr) {
+                    prop._xArr = prop.xData.split(",");
+                }
+            };
+            ManageProductPropertiesInfoController.prototype.initChartItem = function (item) {
+                if (!item._arr) {
+                    item._arr = item.data ? item.data.split(",") : [];
+                }
             };
             /**
              * updateIndex:
              *      更新列表的index属性
              */
-            ManageProductPropertiesInfoController.prototype.updateIndex = function () {
+            ManageProductPropertiesInfoController.prototype.updateIndexAndData = function () {
                 // props
                 _.forEach(this.props, function (prop, i) {
                     prop.index = i;
+                    if (prop.type == 'chart') {
+                        prop.xData = prop._xArr && prop._xArr.join(',');
+                    }
                     // items
                     _.forEach(prop.items || [], function (item, ii) {
                         item.index = ii;
+                        if (prop.type == 'chart')
+                            item.data = item._arr && item._arr.join(',');
                     });
                 });
             };
@@ -4407,7 +4445,7 @@ var app;
         }());
         manage.$module.directive("productDetailsProperties", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-properties.html",
+                templateUrl: "/Content/modules/src/manage/product/details-properties.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductPropertiesInfoController,
@@ -4425,10 +4463,11 @@ var app;
     var manage;
     (function (manage) {
         var ManageProductSkusInfoController = (function () {
-            function ManageProductSkusInfoController($location, $scope, $product) {
+            function ManageProductSkusInfoController($location, $scope, $product, $ui) {
                 this.$location = $location;
                 this.$scope = $scope;
                 this.$product = $product;
+                this.$ui = $ui;
                 this.product = null;
                 this.specials = null;
                 this.langs = [
@@ -4450,9 +4489,11 @@ var app;
                             item.index = ii;
                         });
                     });
-                    this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
-                        alert("型号更新成功");
-                        _this.load();
+                    var q = this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
+                        return _this.load();
+                    });
+                    this.$ui.lockFor("正在保存", q).then(function (r) {
+                        alert("保存成功");
                     });
                 }
             };
@@ -4462,7 +4503,7 @@ var app;
                     productId: this.product.id,
                     includes: "res,items"
                 };
-                this.$product.getSpecials(filter).then(function (r) {
+                return this.$product.getSpecials(filter).then(function (r) {
                     _this.specials = r.data;
                 });
             };
@@ -4494,7 +4535,7 @@ var app;
         }());
         manage.$module.directive("productDetailsSkus", function () {
             return {
-                templateUrl: "/Content/modules/src/manage/product/details-skus.html",
+                templateUrl: "/Content/modules/src/manage/product/details-skus.html?v=" + buildNumber,
                 restrict: "E",
                 replace: true,
                 controller: ManageProductSkusInfoController,
@@ -4560,6 +4601,7 @@ var app;
         var ManageResGroupController = (function () {
             function ManageResGroupController($scope) {
                 this.model = null;
+                this.res = null;
                 this.langs = [
                     { name: "简", code: "cmn-Hans" },
                     { name: "繁", code: "cmn-Hant" },
@@ -4567,24 +4609,49 @@ var app;
                     { name: "德", code: "deu" }
                 ];
                 this.name = $scope["name"];
+                this.type = $scope["type"] || "text";
+                this.rows = $scope["rows"] || "4";
                 this.model = $scope["model"];
+                this.model.res = this.model.res || {};
+                this.res = this.model.res;
                 this.placeholder = $scope["placeholder"];
             }
+            ManageResGroupController.prototype.filledCount = function () {
+                var _this = this;
+                var i = 0;
+                var n = this.name;
+                _.forEach(this.langs, function (lang) {
+                    if (_this.res[lang.code] && _this.res[lang.code][n])
+                        ++i;
+                });
+                return i;
+            };
             return ManageResGroupController;
         }());
         manage.ManageResGroupController = ManageResGroupController;
         manage.$module.directive("resGroup", function () {
             return {
                 restrict: "E",
-                replace: true,
+                replace: false,
                 templateUrl: "/Content/modules/src/manage/_partials/res-group/res-group.html?v=" + buildNumber,
                 scope: {
                     name: "@",
                     placeholder: "@",
+                    type: "@",
+                    rows: "@",
                     model: "=",
                 },
                 controller: ManageResGroupController,
-                controllerAs: "ctrl"
+                controllerAs: "ctrl",
+                link: function (scope, el, attrs, ctrl) {
+                    el.on("click", function () {
+                    });
+                    el.on("click", ".folding-toggle", function (e) {
+                        el.toggleClass("folding");
+                    });
+                    if (ctrl.filledCount() == 4)
+                        el.toggleClass("folding", true);
+                }
             };
         });
     })(manage = app.manage || (app.manage = {}));

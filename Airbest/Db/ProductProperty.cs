@@ -29,5 +29,7 @@ namespace Airbest.Db
 
         [StringLength(50)]
         public string Unit2 { get; set; }
+
+        public string XData { get; set; }
     }
 }

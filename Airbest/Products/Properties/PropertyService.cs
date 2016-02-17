@@ -47,6 +47,7 @@ namespace Airbest.Products.Properties
                 Type = dbm.Type,
                 Unit1 = dbm.Unit1,
                 Unit2 = dbm.Unit2,
+                XData = dbm.XData
             };
 
             if (includes.HasFlag(PropertyQueryIncludes.Res))
@@ -148,6 +149,7 @@ namespace Airbest.Products.Properties
             dbm.Type = prop.Type;
             dbm.Unit1 = prop.Unit1;
             dbm.Unit2 = prop.Unit2;
+            dbm.XData = prop.XData;
 
             if (prop.Res != null)
                 textSvr.Update(dbm.Id, prop.Res);

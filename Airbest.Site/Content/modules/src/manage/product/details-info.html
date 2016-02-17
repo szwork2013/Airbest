@@ -4,24 +4,16 @@
     <form class="form" name="form" ng-submit="form.$valid && !form.$pending && ctrl.submit()" novalidate>
 
         <div class="form-group">
-            <div class="group-label">展示名22</div>
-            <div class="group-content" ng-if="ctrl.model">
-                <res-group name="name" model="ctrl.model" placeholder="产品的展示名称"></res-group>
-                <!--<div class="input-group" ng-repeat="lang in ctrl.langs">
-                    <div class="input-group-addon">{{lang.name}}</div>
-                    <input name="name" type="text" class="form-control" ng-model="ctrl.model[lang.code].name" />
-                </div>-->
-                <p class="help-block">产品的展示名称</p>
+            <div class="group-label">产品展示名</div>
+            <div class="group-content">
+                <res-group class="folding" name="name" style="max-width:40em;" ng-if="ctrl.model.res" model="ctrl.model" placeholder="系列名"></res-group>
             </div>
         </div>
 
         <div class="form-group">
             <div class="group-label">产品特点</div>
             <div class="group-content">
-                <div class="input-group" ng-repeat="lang in ctrl.langs">
-                    <div class="input-group-addon">{{lang.name}}</div>
-                    <textarea name="name" rows="6" class="form-control" ng-model="ctrl.model[lang.code].desc"></textarea>
-                </div>
+                <res-group class="folding" name="desc" ng-if="ctrl.model.res" type="textarea" rows="6" model="ctrl.model" placeholder="产品特点"></res-group>
             </div>
         </div>
 
