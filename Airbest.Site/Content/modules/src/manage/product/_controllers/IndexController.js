@@ -20,3 +20,4 @@ var app;
         manage.$module.controller("ManageProductIndexController", ManageProductIndexController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
+//# sourceMappingURL=IndexController.js.map

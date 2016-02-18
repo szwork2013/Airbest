@@ -1,0 +1,74 @@
+﻿
+<div class="view">
+    <product-details-view-aside title="{{ctrl.product.name}}"></product-details-view-aside>
+
+    <div class="view-main">
+        <form name="form" ng-submit="ctrl.submit()" novalidate ng-if="ctrl.model">
+            <div class="form-group">
+                <div class="group-label">产品名</div>
+                <div class="group-content">
+                    <input style="max-width:40em" type="text" class="form-control" ng-model="ctrl.model.name" placeholder="例如: ABM系列" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">展示名</div>
+                <div class="group-content">
+                    <res-group class="folding" name="name" style="max-width:40em;" model="ctrl.model" placeholder="系列名"></res-group>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">分类ID</div>
+                <div class="group-content">
+                    <input style="max-width:40em" type="text" class="form-control" ng-model="ctrl.model.categoryId" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">缩略图</div>
+                <div class="group-content">
+                    <div class="image-picker" style="width:275px;" pl-upload pl-model="ctrl.model.imageUrl">
+                        <div ng-if="!ctrl.model.imageUrl" class="placeholder">275 x 175</div>
+                        <div class="img-blone" style="padding-top:63.6363%">
+                            <img ng-if="ctrl.model.imageUrl" ng-src="{{ctrl.model.imageUrl}}" alt="" />
+                            <input type="text" class="hidden" ng-model="ctrl.model.imageUrl" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">产品特点</div>
+                <div class="group-content">
+                    <res-group class="folding" name="desc" type="textarea" rows="4" model="ctrl.model" placeholder="产品特点"></res-group>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">适用范围</div>
+                <div class="group-content">
+                    <res-group class="folding" name="scope" type="textarea" rows="4" model="ctrl.model" placeholder="适用范围"></res-group>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">产品优势</div>
+                <div class="group-content">
+                    <res-group class="folding" name="advantage" type="textarea" rows="4" model="ctrl.model" placeholder="产品优势"></res-group>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="group-label">产品结构</div>
+                <div class="group-content">
+                    <res-group class="folding" name="structure" type="textarea" rows="4" model="ctrl.model" placeholder="产品结构"></res-group>
+                </div>
+            </div>
+
+            <div class="form-footer" style="">
+                <button type="submit" class="btn btn-primary btn-block">OK</button>
+            </div>
+        </form>
+    </div>
+</div>

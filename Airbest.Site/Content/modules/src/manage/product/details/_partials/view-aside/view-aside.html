@@ -1,0 +1,14 @@
+﻿
+<div class="view-aside">
+    <div class="header">
+        <h4>{{title}}</h4>
+        <a class="back" ng-href="product">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </div>
+    <ol class="menu">
+        <li ng-repeat="it in items" ng-class="{ active: it.active }">
+            <a ng-href="{{it.href}}">{{it.name}}</a>
+        </li>
+    </ol>
+</div>

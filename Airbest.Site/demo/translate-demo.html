@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <style>
+
+        #row{
+            margin-top: 200px;
+        }
+
+        .it {
+            /* 基本样式(颜色, 宽度) */
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: #0094ff;
+            margin-right: 2px;
+
+            /* 默认在上面 y: -100 */
+            -moz-transform: translateY(-100px);
+            -ms-transform: translateY(-100px);
+            -o-transform: translateY(-100px);
+            -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+
+            /* 动画属性, 掉落时间 */
+            -moz-transition: all 500ms;
+            -o-transition: all 500ms;
+            -webkit-transition: all 500ms;
+            transition: all 500ms;
+        }
+
+        #row.shown .it {
+            /* shown 之后, 然it掉落下来, y:0 */
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        /* 
+            transition-delay 表示 transition的延迟 
+            给每个 it指定不同的延迟, 就有错落的效果了.
+        */
+        .it:nth-child(1){  -moz-transition-delay: 0ms; -o-transition-delay: 0ms; -webkit-transition-delay: 0ms; transition-delay: 0ms; }
+        .it:nth-child(2){  -moz-transition-delay: 100ms; -o-transition-delay: 100ms; -webkit-transition-delay: 100ms; transition-delay: 100ms; }
+        .it:nth-child(3){  -moz-transition-delay: 200ms; -o-transition-delay: 200ms; -webkit-transition-delay: 200ms; transition-delay: 200ms; }
+        .it:nth-child(4){  -moz-transition-delay: 300ms; -o-transition-delay: 300ms; -webkit-transition-delay: 300ms; transition-delay: 300ms; }
+        .it:nth-child(5){  -moz-transition-delay: 400ms; -o-transition-delay: 400ms; -webkit-transition-delay: 400ms; transition-delay: 400ms; }
+        .it:nth-child(6){  -moz-transition-delay: 500ms; -o-transition-delay: 500ms; -webkit-transition-delay: 500ms; transition-delay: 500ms; }
+        .it:nth-child(7){  -moz-transition-delay: 600ms; -o-transition-delay: 600ms; -webkit-transition-delay: 600ms; transition-delay: 600ms; }
+    </style>
+</head>
+<body>
+    <div id="row">
+        <div draggable="true" class="it">1</div>
+        <div class="it dropable">2</div>
+        <div class="it dropable">3</div>
+        <div class="it dropable">4</div>
+        <div class="it dropable">5</div>
+        <div class="it dropable">6</div>
+        <div class="it dropable">7</div>
+    </div>
+
+    <button type="button" onclick="$('#row').toggleClass('shown')">点我切换样式</button>
+
+    <script>
+
+        ///* 放下目标节点时触发事件 */
+        //document.addEventListener("dragover", function (event) {
+        //    // 阻止默认动作
+        //    event.preventDefault();
+        //}, false);
+
+
+        $(".it").on("dragover", function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+</body>
+</html>

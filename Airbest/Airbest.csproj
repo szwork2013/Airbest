@@ -55,6 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Articles\Article.cs" />
+    <Compile Include="Articles\ArticleService.cs" />
+    <Compile Include="Articles\Categories\Category.cs" />
+    <Compile Include="Articles\Categories\CategoryQueryIncludes.cs" />
+    <Compile Include="Articles\Categories\CategoryService.cs" />
     <Compile Include="Db\AirbestDbContext.cs" />
     <Compile Include="Db\Manuals\ProductSpecial.cs" />
     <Compile Include="Db\Product.cs" />
@@ -65,15 +70,16 @@
     <Compile Include="Db\ProductSpecial.cs" />
     <Compile Include="Db\ProductSpecialItem.cs" />
     <Compile Include="Db\TextRes.cs" />
+    <Compile Include="Languages\ResedModel.cs" />
     <Compile Include="Languages\TextResService.cs" />
-    <Compile Include="Products\Categories\ProductCategory.cs" />
-    <Compile Include="Products\Categories\ProductCategoryService.cs" />
+    <Compile Include="Products\Categories\Category.cs" />
+    <Compile Include="Products\Categories\CategoryQueryFilter.cs" />
+    <Compile Include="Products\Categories\CategoryQueryIncludes.cs" />
+    <Compile Include="Products\Categories\CategoryService.cs" />
     <Compile Include="Products\Product.cs" />
-    <Compile Include="Products\ProductCreateModel.cs" />
     <Compile Include="Products\ProductQueryFilter.cs" />
     <Compile Include="Products\ProductQueryIncludes.cs" />
     <Compile Include="Products\ProductService.cs" />
-    <Compile Include="Products\ProductUpdateModel.cs" />
     <Compile Include="Products\Properties\PropertyQueryIncludes.cs" />
     <Compile Include="Products\Properties\PropertyQueryFilter.cs" />
     <Compile Include="Products\Properties\PropertyService.cs" />
@@ -89,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Articles\Categories\CategoryQueryFilter.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

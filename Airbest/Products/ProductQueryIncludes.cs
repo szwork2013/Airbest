@@ -10,5 +10,7 @@ namespace Airbest.Products
     public enum ProductQueryIncludes
     {
         None = 0,
+
+        Res = 1,
     }
 }

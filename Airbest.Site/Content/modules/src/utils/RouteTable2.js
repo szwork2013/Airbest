@@ -96,3 +96,4 @@ var app;
         utils.RouteTable = RouteTable;
     })(utils = app.utils || (app.utils = {}));
 })(app || (app = {}));
+//# sourceMappingURL=RouteTable2.js.map

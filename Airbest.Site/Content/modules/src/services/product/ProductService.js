@@ -146,3 +146,4 @@ var app;
         services.$module.service("$product", ProductService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=ProductService.js.map

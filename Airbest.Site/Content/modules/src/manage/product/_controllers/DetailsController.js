@@ -24,3 +24,4 @@ var app;
         manage.$module.controller("ManageProductDetailsController", ManageProductDetailsController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
+//# sourceMappingURL=DetailsController.js.map

@@ -656,33 +656,33 @@
       <DependentUpon>module.ts</DependentUpon>
     </Content>
     <Content Include="Content\modules\src\manage\product\category\index.html" />
-    <Content Include="Content\modules\src\manage\product\details-info.html" />
-    <Content Include="Content\modules\src\manage\product\details-charts.html" />
-    <Content Include="Content\modules\src\manage\product\details-properties.html" />
-    <Content Include="Content\modules\src\manage\product\details-base.html" />
-    <Content Include="Content\modules\src\manage\product\details-skus.html" />
+    <Content Include="Content\modules\src\manage\product\details\index.html" />
+    <Content Include="Content\modules\src\manage\product\details\property.html" />
+    <Content Include="Content\modules\src\manage\product\details\base.html" />
+    <Content Include="Content\modules\src\manage\product\details\special.html" />
     <Content Include="Content\modules\src\manage\product\details.html" />
+    <Content Include="Content\modules\src\manage\product\details\_controllers\BaseController.js">
+      <DependentUpon>BaseController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\IndexController.js">
+      <DependentUpon>IndexController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\PropertyController.js">
+      <DependentUpon>PropertyController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\SpecialController.js">
+      <DependentUpon>SpecialController.ts</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_partials\view-aside\view-aside.html" />
+    <Content Include="Content\modules\src\manage\product\details\_partials\view-aside\view-aside.js">
+      <DependentUpon>view-aside.ts</DependentUpon>
+    </Content>
     <Content Include="Content\modules\src\manage\product\index.html" />
     <Content Include="Content\modules\src\manage\product\_controllers\CreateController.js">
       <DependentUpon>CreateController.ts</DependentUpon>
     </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.js">
-      <DependentUpon>DetailsBaseController.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsChartsController.js">
-      <DependentUpon>DetailsChartsController.ts</DependentUpon>
-    </Content>
     <Content Include="Content\modules\src\manage\product\_controllers\DetailsController.js">
       <DependentUpon>DetailsController.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.js">
-      <DependentUpon>DetailsInfoController.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.js">
-      <DependentUpon>DetailsPropertiesController.ts</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.js">
-      <DependentUpon>DetailsSkusController.ts</DependentUpon>
     </Content>
     <Content Include="Content\modules\src\manage\product\_controllers\IndexController.js">
       <DependentUpon>IndexController.ts</DependentUpon>
@@ -756,6 +756,8 @@
     <Content Include="Content\themes\dist\manage.min.css">
       <DependentUpon>manage.css</DependentUpon>
     </Content>
+    <Content Include="demo\drop.html" />
+    <Content Include="demo\translate-demo.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
@@ -1077,20 +1079,8 @@
     <Content Include="Content\modules\src\manage\product\_controllers\CreateController.js.map">
       <DependentUpon>CreateController.js</DependentUpon>
     </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.js.map">
-      <DependentUpon>DetailsBaseController.js</DependentUpon>
-    </Content>
     <Content Include="Content\modules\src\manage\product\_controllers\DetailsController.js.map">
       <DependentUpon>DetailsController.js</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.js.map">
-      <DependentUpon>DetailsInfoController.js</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.js.map">
-      <DependentUpon>DetailsPropertiesController.js</DependentUpon>
-    </Content>
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.js.map">
-      <DependentUpon>DetailsSkusController.js</DependentUpon>
     </Content>
     <Content Include="Content\modules\src\manage\product\_controllers\IndexController.js.map">
       <DependentUpon>IndexController.js</DependentUpon>
@@ -1100,8 +1090,24 @@
     <Content Include="Content\themes\src\manage\res-group.less" />
     <Content Include="Content\themes\src\manage\form.less" />
     <Content Include="Content\themes\src\manage\product\form-product-properties.less" />
-    <Content Include="Content\modules\src\manage\product\_controllers\DetailsChartsController.js.map">
-      <DependentUpon>DetailsChartsController.js</DependentUpon>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\BaseController.js.map">
+      <DependentUpon>BaseController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\IndexController.js.map">
+      <DependentUpon>IndexController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\plupload\PluploadHandler.ashx" />
+    <Content Include="Content\modules\src\manage\product\details\_controllers\IndexController.js.map">
+      <DependentUpon>IndexController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\PropertyController.js.map">
+      <DependentUpon>PropertyController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_controllers\SpecialController.js.map">
+      <DependentUpon>SpecialController.js</DependentUpon>
+    </Content>
+    <Content Include="Content\modules\src\manage\product\details\_partials\view-aside\view-aside.js.map">
+      <DependentUpon>view-aside.js</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\ftp.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -1201,13 +1207,15 @@
     <TypeScriptCompile Include="Content\modules\src\app.d.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\json\IndexController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\module.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\details\_controllers\IndexController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\details\_partials\view-aside\view-aside.ts">
+      <DependentUpon>view-aside.html</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\CreateController.ts" />
-    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsBaseController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\details\_controllers\BaseController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsController.ts" />
-    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsInfoController.ts" />
-    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsChartsController.ts" />
-    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsPropertiesController.ts" />
-    <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\DetailsSkusController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\details\_controllers\PropertyController.ts" />
+    <TypeScriptCompile Include="Content\modules\src\manage\product\details\_controllers\SpecialController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\product\_controllers\IndexController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\_partials\app-navi\AppNaviController.ts" />
     <TypeScriptCompile Include="Content\modules\src\manage\_partials\res-group\ResGroup.ts" />

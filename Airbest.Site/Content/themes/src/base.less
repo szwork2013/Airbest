@@ -1,2 +1,14 @@
 ﻿@import "../../../bower_components/bootstrap/less/mixins";
 @import "../../../bower_components/bootstrap/less/variables";
+
+.img-blone{
+    position: relative;
+    overflow: hidden;
+    & > img{
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+    }
+}

@@ -14,8 +14,9 @@ var app;
             }
             UIService.prototype.lockFor = function (s, p) {
                 var _this = this;
+                var arr = angular.isArray(p) ? p : [p];
                 this.lock(s);
-                return p.finally(function () {
+                return this.$q.all(arr).finally(function () {
                     _this.unlock();
                 });
             };
@@ -48,3 +49,4 @@ var app;
         services.$module.service("$ui", UIService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=UIService.js.map

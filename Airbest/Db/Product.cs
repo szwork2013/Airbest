@@ -19,6 +19,6 @@ namespace Airbest.Db
 
         public string Name { get; set; }
 
-        public string SkuNameFormat { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

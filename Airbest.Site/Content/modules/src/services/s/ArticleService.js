@@ -11,3 +11,4 @@ var app;
         services.$module.controller("$article", ArticleService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=ArticleService.js.map

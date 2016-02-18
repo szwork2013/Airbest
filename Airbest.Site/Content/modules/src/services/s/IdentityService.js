@@ -84,3 +84,4 @@ var app;
         services.$module.service("$identity", IdentityService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=IdentityService.js.map

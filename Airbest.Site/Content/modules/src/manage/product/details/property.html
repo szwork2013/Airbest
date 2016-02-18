@@ -1,0 +1,107 @@
+﻿
+<div class="view">
+    <product-details-view-aside title="{{ctrl.product.name}}"></product-details-view-aside>
+    <div class="view-main">
+        <!--表单-->
+        <form ng-if="ctrl.props" class="form form-product-properties" name="form" ng-submit="form.$valid && !form.$pending && ctrl.submit()" novalidate>
+            <div class="property-panel" ng-repeat="prop in ctrl.props">
+                <div class="header">
+                    <div class="title-wrapper">
+                        <res-group class="folding" name="name" ng-if="prop" model="prop" placeholder="规格"></res-group>
+                    </div>
+                    <div class="oprs-wrapper">
+                        <div class="btn-group btn-group-sm">
+                            <a class="btn btn-default" ng-click="ctrl.swipe(prop, ctrl.props, -1)" title="上移"><i class="fa fa-arrow-up"></i></a>
+                            <a class="btn btn-default" ng-click="ctrl.swipe(prop, ctrl.props, +1)" title="下移"><i class="fa fa-arrow-down"></i></a>
+                            <a class="btn btn-default" ng-click="ctrl.remove(prop, ctrl.props)" title="删除"><i class="fa fa-trash-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <table>
+                        <tr class="tr-head">
+                            <td class="th-model" style="width:15em">
+                                <select type="text" class="form-control" name="type" ng-model="prop.type">
+                                    <option value="scalar">标量</option>
+                                    <option value="range">范围</option>
+                                    <option value="chart">图表</option>
+                                    <option value="text">文本</option>
+                                </select>
+                            </td>
+                            <td ng-if="prop.type != 'chart'">
+                                <div ng-if="prop.type == 'scalar' || prop.type == 'range'">
+                                    <input type="text" class="form-control" ng-model="prop.unit1" placeholder="单位" />
+                                </div>
+                            </td>
+                            <td ng-if="prop.type == 'chart'" ng-init="ctrl.initChartProp(prop)" colspan="{{prop._xArr.length}}">
+                                <div class="form-inline" style="padding-left:12px">
+                                    X轴: <input type="text" style="width:6em;" class="form-control" ng-model="prop.unit1" placeholder="单位X" />
+                                    Y轴: <input type="text" style="width:6em;" class="form-control" ng-model="prop.unit2" placeholder="单位Y" />
+                                </div>
+                            </td>
+                            <td class="th-oprs text-right" style="width:109.75px">
+                                <div style="padding-right:12px">
+                                    <a role="button" ng-click="ctrl.addItem(prop)">添加行</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-if="prop.type == 'chart'" ng-init="ctrl.initChartProp(prop)">
+                            <td></td>
+                            <td ng-repeat="x in prop._xArr track by $index" class="text-center">
+                                <input type="text" class="form-control" ng-model="prop._xArr[$index]" style="font-weight:bold" placeholder="N" />
+                            </td>
+                            <td class="text-right">
+                                <div style="padding-right:12px">
+                                    <a style="margin-left:0.5em" role="button" ng-click="prop._xArr.splice(prop._xArr.length - 1, 1)">减少列</a>
+                                    <a style="margin-left:0.5em" role="button" ng-click="prop._xArr.push('')">添加列</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-repeat="item in prop.items">
+                            <td class="td-model">
+                                <input class="form-control" placeholder="全型号" ng-model="item.model" />
+                            </td>
+                            <td class="td-values" ng-if="prop.type != 'chart'">
+                                <div ng-if="prop.type == 'scalar'">
+                                    <input type="text" class="form-control" ng-model="item.float1" placeholder="数值" />
+                                </div>
+                                <div class="form-inline" ng-if="prop.type == 'range'">
+                                    <input type="text" style="width:6em;" class="form-control" ng-model="item.float1" placeholder="N" />
+                                    到   <input type="text" style="width:6em;" class="form-control" ng-model="item.float2" placeholder="N" />
+                                    最大 <input type="text" style="width:6em;" class="form-control" ng-model="item.float3" placeholder="N" />
+                                </div>
+                                <div ng-if="prop.type == 'text'">
+                                    <res-group class="folding" name="text" ng-if="item" model="item" placeholder="文本"></res-group>
+                                </div>
+                            </td>
+                            <td ng-if="prop.type == 'chart'" ng-repeat="x in prop._xArr track by $index" ng-init="ctrl.initChartItem(item)">
+                                <input type="text" class="form-control" ng-model="item._arr[$index]" placeholder="N" />
+                            </td>
+                            <td class="td-oprs text-right">
+                                <div style="padding-right:12px">
+                                    <a style="margin-left:0.5em" role="button" ng-click="ctrl.swipe(item, prop.items, -1)" title="上移"><i class="fa fa-arrow-up"></i></a>
+                                    <a style="margin-left:0.5em" role="button" ng-click="ctrl.swipe(item, prop.items, +1)" title="下移"><i class="fa fa-arrow-down"></i></a>
+                                    <a style="margin-left:0.5em" role="button" ng-click="ctrl.remove(item, prop.items)" title="删除"><i class="fa fa-trash-o"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="form-footer">
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" ng-click="ctrl.addProp()">添加规格</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-block" ng-click="ctrl.load()">重新加载</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary btn-block">保存修改</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

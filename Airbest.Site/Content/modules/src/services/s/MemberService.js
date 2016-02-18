@@ -84,3 +84,4 @@ var app;
         services.$module.service("$member", MemberService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=MemberService.js.map

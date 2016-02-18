@@ -1,3 +1,14 @@
+.img-blone {
+  position: relative;
+  overflow: hidden;
+}
+.img-blone > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+}
 .form-control {
   border-radius: 0;
 }
@@ -64,7 +75,8 @@
 .app-view > .view > .view-aside > .menu > li.active {
   background-color: #fff;
 }
-.app-view > .view > .view-body {
+.app-view > .view > .view-body,
+.app-view > .view > .view-main {
   -webkit-box-flex: 1;
           flex: 1;
   background-color: #fff;
@@ -221,6 +233,27 @@ res-group .folding-toggle .label,
 .form-group .group-label {
   font-size: 1.6rem;
   margin-bottom: 0.5em;
+}
+.form-group .image-picker {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  border: 1px solid #ccc;
+  background-color: #ffd;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.form-group .image-picker .placeholder {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 1.6rem;
+  height: 1.6rem;
+  margin: auto;
+  text-align: center;
+  position: absolute;
+  color: #aaa;
 }
 .form-product-properties .form-footer {
   margin-top: 30px;

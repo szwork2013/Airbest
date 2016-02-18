@@ -23,9 +23,10 @@ module app.services {
             this.defaultText = this.tx.text();
         }
 
-        public lockFor<T>(s: string, p: ng.IPromise<T>) {
+        public lockFor<T>(s: string, p: ng.IPromise<T> | ng.IPromise<T>[]) {
+            let arr = angular.isArray(p) ? p : [p];
             this.lock(s);
-            return p.finally(() => {
+            return this.$q.all(arr as any).finally(() => {
                 this.unlock();
             });
         }

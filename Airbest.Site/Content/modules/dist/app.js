@@ -98,7 +98,7 @@ var app;
     })(utils = app.utils || (app.utils = {}));
 })(app || (app = {}));
 
-
+//# sourceMappingURL=test.js.map
 var app;
 (function (app) {
     var services;
@@ -106,7 +106,7 @@ var app;
         services.$module = angular.module("app.services", []);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=module.js.map
 var app;
 (function (app) {
     var services;
@@ -126,7 +126,7 @@ var app;
         });
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=defaultImgFilter.js.map
 var app;
 (function (app) {
     var services;
@@ -164,7 +164,7 @@ var app;
         });
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=descFilter.js.map
 var app;
 (function (app) {
     var services;
@@ -227,7 +227,7 @@ var app;
         services.$module.service("$favorite", FavoriteService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=FavoriteService.js.map
 var app;
 (function (app) {
     var services;
@@ -353,7 +353,7 @@ var app;
         services.$module.service("$orderRefund", OrderRefundService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=OrderRefundService.js.map
 var app;
 (function (app) {
     var services;
@@ -412,7 +412,7 @@ var app;
         services.$module.service("$zan", ZanService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=ZanService.js.map
 var app;
 (function (app) {
     var services;
@@ -561,7 +561,7 @@ var app;
         services.$module.service("$product", ProductService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=ProductService.js.map
 var app;
 (function (app) {
     var services;
@@ -621,7 +621,7 @@ var app;
         services.$module.service("$album", AlbumService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=AlbumService.js.map
 var app;
 (function (app) {
     var services;
@@ -635,7 +635,7 @@ var app;
         services.$module.controller("$article", ArticleService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=ArticleService.js.map
 var app;
 (function (app) {
     var services;
@@ -722,7 +722,7 @@ var app;
         services.$module.service("$identity", IdentityService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=IdentityService.js.map
 var app;
 (function (app) {
     var services;
@@ -763,7 +763,7 @@ var app;
         services.$module.service("$mailGroup", MainGroupService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=MailGroupService.js.map
 var app;
 (function (app) {
     var services;
@@ -850,7 +850,7 @@ var app;
         services.$module.service("$member", MemberService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=MemberService.js.map
 var app;
 (function (app) {
     var services;
@@ -901,7 +901,7 @@ var app;
         services.$module.service("$news", NewsService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=NewsService.js.map
 var app;
 (function (app) {
     var services;
@@ -972,7 +972,7 @@ var app;
         services.$module.service("$order", OrderService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=OrderService.js.map
 var app;
 (function (app) {
     var services;
@@ -1005,7 +1005,7 @@ var app;
         });
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=SessionService.js.map
 var app;
 (function (app) {
     var services;
@@ -1179,7 +1179,7 @@ var app;
         services.$module.service("$shoppingcart", ShoppingcartService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=ShoppingcartService.js.map
 var app;
 (function (app) {
     var services;
@@ -1246,7 +1246,7 @@ var app;
         services.$module.service("$shop", ShopService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=ShopService.js.map
 var app;
 (function (app) {
     var services;
@@ -1263,8 +1263,9 @@ var app;
             }
             UIService.prototype.lockFor = function (s, p) {
                 var _this = this;
+                var arr = angular.isArray(p) ? p : [p];
                 this.lock(s);
-                return p.finally(function () {
+                return this.$q.all(arr).finally(function () {
                     _this.unlock();
                 });
             };
@@ -1297,7 +1298,7 @@ var app;
         services.$module.service("$ui", UIService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=UIService.js.map
 var app;
 (function (app) {
     var services;
@@ -1342,7 +1343,7 @@ var app;
         services.$module.service("$verify", VerifyService);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=VerifyService.js.map
 var app;
 (function (app) {
     var directives;
@@ -3968,9 +3969,12 @@ var app;
                 }
             });
             table.routes = [
-                { title: "添加产品", path: "/product/create" },
-                { title: "产品中心", path: "/product/details" },
-                { title: "产品中心", path: "/product/" },
+                { path: "/product/details/special" },
+                { path: "/product/details/property" },
+                { path: "/product/details/base" },
+                { path: "/product/details/" },
+                { path: "/product/create" },
+                { path: "/product/" },
                 { path: "/" },
             ];
             table.register($routeProvider);
@@ -4093,8 +4097,39 @@ var app;
         manage.$module.controller("ManageJsonHomeNaviController", ManageJsonIndexController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-
-
+//# sourceMappingURL=module.js.map
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        manage.$module.directive("productDetailsViewAside", function ($location, $http) {
+            return {
+                restrict: "E",
+                replace: true,
+                templateUrl: "/Content/modules/src/manage/product/details/_partials/view-aside/view-aside.html?v=" + buildNumber,
+                scope: {
+                    title: "@",
+                },
+                link: function (scope, el, attrs) {
+                    var id = $location.search().id;
+                    scope["id"] = id;
+                    var items = [
+                        { active: false, name: "基本信息", path: "/product/details/base", href: "product/details/base?id=" + id },
+                        { active: false, name: "型号规格", path: "/product/details/special", href: "product/details/special?id=" + id },
+                        { active: false, name: "技术规格", path: "/product/details/property", href: "product/details/property?id=" + id },
+                    ];
+                    _.forEach(items, function (it) {
+                        if (it.path == $location.path())
+                            it.active = true;
+                    });
+                    scope["items"] = items;
+                }
+            };
+        });
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+//# sourceMappingURL=view-aside.js.map
+//# sourceMappingURL=IndexController.js.map
 var app;
 (function (app) {
     var manage;
@@ -4117,122 +4152,7 @@ var app;
         manage.$module.controller("ManageProductCreateController", ManageProductCreateController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-
-var app;
-(function (app) {
-    var manage;
-    (function (manage) {
-        var ManageProductDetailsBaseController = (function () {
-            function ManageProductDetailsBaseController($location, $scope, $product) {
-                this.$location = $location;
-                this.$scope = $scope;
-                this.$product = $product;
-                this.product = null;
-                this.model = null;
-                this.product = $scope["product"];
-                this.model = this.product;
-                //this.model = {
-                //    name: this.product.name,
-                //};
-            }
-            ManageProductDetailsBaseController.prototype.submit = function () {
-                this.$product.update(this.product.id, this.model).then(function (r) {
-                    alert("更新成功");
-                    //angular.extend(this.product, this.model);
-                });
-            };
-            return ManageProductDetailsBaseController;
-        }());
-        manage.$module.directive("productDetailsBase", function () {
-            return {
-                templateUrl: "/Content/modules/src/manage/product/details-base.html?v=" + buildNumber,
-                restrict: "E",
-                replace: true,
-                controller: ManageProductDetailsBaseController,
-                controllerAs: "ctrl",
-                scope: {
-                    product: "="
-                }
-            };
-        });
-    })(manage = app.manage || (app.manage = {}));
-})(app || (app = {}));
-
-var app;
-(function (app) {
-    var manage;
-    (function (manage) {
-        var ManageProductDetailsChartsController = (function () {
-            function ManageProductDetailsChartsController($location, $scope, $product) {
-                this.$location = $location;
-                this.$scope = $scope;
-                this.$product = $product;
-                this.product = null;
-                this.props = null;
-                this.langs = [
-                    { name: "简体", code: "cmn-Hans" },
-                    { name: "繁体", code: "cmn-Hant" },
-                    { name: "英语", code: "eng" },
-                    { name: "德语", code: "deu" }
-                ];
-                this.product = $scope["product"];
-                this.load();
-            }
-            ManageProductDetailsChartsController.prototype.submit = function () {
-                if (confirm("确认要保存对型号规格的修改吗?")) {
-                }
-            };
-            ManageProductDetailsChartsController.prototype.load = function () {
-                var _this = this;
-                var filter = {
-                    productId: this.product.id,
-                    includes: "res,items"
-                };
-                this.$product.getSpecials(filter).then(function (r) {
-                    _this.props = r.data;
-                });
-            };
-            ManageProductDetailsChartsController.prototype.addSpecial = function () {
-                this.props.push({});
-            };
-            ManageProductDetailsChartsController.prototype.addItem = function (prop) {
-                prop.items = prop.items || [];
-                prop.items.push({});
-            };
-            ManageProductDetailsChartsController.prototype.remove = function (it, arr) {
-                var i = arr.indexOf(it);
-                if (i != -1) {
-                    arr.splice(i, 1);
-                }
-            };
-            ManageProductDetailsChartsController.prototype.swipe = function (it, arr, step) {
-                var i = arr.indexOf(it);
-                if (i != -1) {
-                    var ii = i + step;
-                    if (ii >= 0 && ii < arr.length) {
-                        var tmp = arr[ii];
-                        arr[ii] = arr[i];
-                        arr[i] = tmp;
-                    }
-                }
-            };
-            return ManageProductDetailsChartsController;
-        }());
-        manage.$module.directive("productDetailsCharts", function () {
-            return {
-                templateUrl: "/Content/modules/src/manage/product/details-charts.html?v=" + buildNumber,
-                restrict: "E",
-                replace: true,
-                controller: ManageProductDetailsChartsController,
-                controllerAs: "ctrl",
-                scope: {
-                    product: "="
-                }
-            };
-        });
-    })(manage = app.manage || (app.manage = {}));
-})(app || (app = {}));
-
+//# sourceMappingURL=CreateController.js.map
 var app;
 (function (app) {
     var manage;
@@ -4259,277 +4179,7 @@ var app;
         manage.$module.controller("ManageProductDetailsController", ManageProductDetailsController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-
-var app;
-(function (app) {
-    var manage;
-    (function (manage) {
-        var ManageProductDetailsInfoController = (function () {
-            function ManageProductDetailsInfoController($location, $scope, $product) {
-                var _this = this;
-                this.$location = $location;
-                this.$scope = $scope;
-                this.$product = $product;
-                this.model = { res: null };
-                this.product = null;
-                this.langs = [
-                    { name: "简体", code: "cmn-Hans" },
-                    { name: "繁体", code: "cmn-Hant" },
-                    { name: "英语", code: "eng" },
-                    { name: "德语", code: "deu" }
-                ];
-                this.product = $scope["product"];
-                this.$product.getRes(this.product.id).then(function (r) {
-                    _this.model.res = r;
-                    _.forEach(_this.langs, function (lang) {
-                        _this.model.res[lang.code] = _this.model.res[lang.code] || {};
-                    });
-                });
-            }
-            ManageProductDetailsInfoController.prototype.submit = function () {
-                this.$product.updateRes(this.product.id, this.model.res).then(function (r) {
-                    alert("更新成功");
-                });
-            };
-            return ManageProductDetailsInfoController;
-        }());
-        manage.$module.directive("productDetailsInfo", function () {
-            return {
-                templateUrl: "/Content/modules/src/manage/product/details-info.html?v=" + buildNumber,
-                restrict: "E",
-                replace: true,
-                controller: ManageProductDetailsInfoController,
-                controllerAs: "ctrl",
-                scope: {
-                    product: "="
-                }
-            };
-        });
-    })(manage = app.manage || (app.manage = {}));
-})(app || (app = {}));
-
-var app;
-(function (app) {
-    var manage;
-    (function (manage) {
-        var ManageProductPropertiesInfoController = (function () {
-            function ManageProductPropertiesInfoController($location, $scope, $http, $product, $ui) {
-                this.$location = $location;
-                this.$scope = $scope;
-                this.$http = $http;
-                this.$product = $product;
-                this.$ui = $ui;
-                this.product = null;
-                this.props = null;
-                this.langs = [
-                    { name: "简体", code: "cmn-Hans" },
-                    { name: "繁体", code: "cmn-Hant" },
-                    { name: "英语", code: "eng" },
-                    { name: "德语", code: "deu" }
-                ];
-                this.product = $scope["product"];
-                this.load();
-            }
-            /**
-             * submit:
-             *      提交
-             */
-            ManageProductPropertiesInfoController.prototype.submit = function () {
-                var _this = this;
-                if (!confirm("确认要保存对型号规格的修改吗?"))
-                    return;
-                this.updateIndexAndData();
-                var u = "/api/product/property/replace-all";
-                var f = { productId: this.product.id };
-                var q = this.$http.post(u, this.props, { params: f }).then(function (rsp) {
-                    return _this.load();
-                });
-                this.$ui.lockFor("正在保存", q).then(function (r) {
-                    alert("保存成功");
-                });
-                ;
-            };
-            ManageProductPropertiesInfoController.prototype.initChartProp = function (prop) {
-                prop.xData = prop.xData || "0,10,20,30,40,50,60,70,80,90";
-                if (!prop._xArr) {
-                    prop._xArr = prop.xData.split(",");
-                }
-            };
-            ManageProductPropertiesInfoController.prototype.initChartItem = function (item) {
-                if (!item._arr) {
-                    item._arr = item.data ? item.data.split(",") : [];
-                }
-            };
-            /**
-             * updateIndex:
-             *      更新列表的index属性
-             */
-            ManageProductPropertiesInfoController.prototype.updateIndexAndData = function () {
-                // props
-                _.forEach(this.props, function (prop, i) {
-                    prop.index = i;
-                    if (prop.type == 'chart') {
-                        prop.xData = prop._xArr && prop._xArr.join(',');
-                    }
-                    // items
-                    _.forEach(prop.items || [], function (item, ii) {
-                        item.index = ii;
-                        if (prop.type == 'chart')
-                            item.data = item._arr && item._arr.join(',');
-                    });
-                });
-            };
-            /**
-             * load:
-             *      加载数据
-             */
-            ManageProductPropertiesInfoController.prototype.load = function () {
-                var _this = this;
-                var pid = this.product.id;
-                var u = "/api/product/property";
-                var f = {
-                    productId: pid,
-                    includes: "res,items"
-                };
-                this.props = null;
-                return this.$http.get(u, { params: f }).then(function (rsp) {
-                    var r = rsp.data;
-                    _this.props = r.data;
-                });
-            };
-            ManageProductPropertiesInfoController.prototype.addProp = function () {
-                this.props.push({
-                    type: "scalar"
-                });
-            };
-            ManageProductPropertiesInfoController.prototype.addItem = function (prop) {
-                prop.items = prop.items || [];
-                prop.items.push({});
-            };
-            ManageProductPropertiesInfoController.prototype.remove = function (it, arr) {
-                var i = arr.indexOf(it);
-                if (i != -1) {
-                    arr.splice(i, 1);
-                }
-            };
-            ManageProductPropertiesInfoController.prototype.swipe = function (it, arr, step) {
-                var i = arr.indexOf(it);
-                if (i != -1) {
-                    var ii = i + step;
-                    if (ii >= 0 && ii < arr.length) {
-                        var tmp = arr[ii];
-                        arr[ii] = arr[i];
-                        arr[i] = tmp;
-                    }
-                }
-            };
-            return ManageProductPropertiesInfoController;
-        }());
-        manage.$module.directive("productDetailsProperties", function () {
-            return {
-                templateUrl: "/Content/modules/src/manage/product/details-properties.html?v=" + buildNumber,
-                restrict: "E",
-                replace: true,
-                controller: ManageProductPropertiesInfoController,
-                controllerAs: "ctrl",
-                scope: {
-                    product: "="
-                }
-            };
-        });
-    })(manage = app.manage || (app.manage = {}));
-})(app || (app = {}));
-
-var app;
-(function (app) {
-    var manage;
-    (function (manage) {
-        var ManageProductSkusInfoController = (function () {
-            function ManageProductSkusInfoController($location, $scope, $product, $ui) {
-                this.$location = $location;
-                this.$scope = $scope;
-                this.$product = $product;
-                this.$ui = $ui;
-                this.product = null;
-                this.specials = null;
-                this.langs = [
-                    { name: "简体", code: "cmn-Hans" },
-                    { name: "繁体", code: "cmn-Hant" },
-                    { name: "英语", code: "eng" },
-                    { name: "德语", code: "deu" }
-                ];
-                this.product = $scope["product"];
-                this.load();
-            }
-            ManageProductSkusInfoController.prototype.submit = function () {
-                var _this = this;
-                if (confirm("确认要保存对型号规格的修改吗?")) {
-                    // sort
-                    _.forEach(this.specials, function (special, i) {
-                        special.index = i;
-                        _.forEach(special.items || [], function (item, ii) {
-                            item.index = ii;
-                        });
-                    });
-                    var q = this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
-                        return _this.load();
-                    });
-                    this.$ui.lockFor("正在保存", q).then(function (r) {
-                        alert("保存成功");
-                    });
-                }
-            };
-            ManageProductSkusInfoController.prototype.load = function () {
-                var _this = this;
-                var filter = {
-                    productId: this.product.id,
-                    includes: "res,items"
-                };
-                return this.$product.getSpecials(filter).then(function (r) {
-                    _this.specials = r.data;
-                });
-            };
-            ManageProductSkusInfoController.prototype.addSpecial = function () {
-                this.specials.push({});
-            };
-            ManageProductSkusInfoController.prototype.addItem = function (special) {
-                special.items = special.items || [];
-                special.items.push({});
-            };
-            ManageProductSkusInfoController.prototype.remove = function (it, arr) {
-                var i = arr.indexOf(it);
-                if (i != -1) {
-                    arr.splice(i, 1);
-                }
-            };
-            ManageProductSkusInfoController.prototype.swipe = function (it, arr, step) {
-                var i = arr.indexOf(it);
-                if (i != -1) {
-                    var ii = i + step;
-                    if (ii >= 0 && ii < arr.length) {
-                        var tmp = arr[ii];
-                        arr[ii] = arr[i];
-                        arr[i] = tmp;
-                    }
-                }
-            };
-            return ManageProductSkusInfoController;
-        }());
-        manage.$module.directive("productDetailsSkus", function () {
-            return {
-                templateUrl: "/Content/modules/src/manage/product/details-skus.html?v=" + buildNumber,
-                restrict: "E",
-                replace: true,
-                controller: ManageProductSkusInfoController,
-                controllerAs: "ctrl",
-                scope: {
-                    product: "="
-                }
-            };
-        });
-    })(manage = app.manage || (app.manage = {}));
-})(app || (app = {}));
-
+//# sourceMappingURL=DetailsController.js.map
 var app;
 (function (app) {
     var manage;
@@ -4552,7 +4202,7 @@ var app;
         manage.$module.controller("ManageProductIndexController", ManageProductIndexController);
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=IndexController.js.map
 var app;
 (function (app) {
     var manage;
@@ -4575,7 +4225,7 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
-
+//# sourceMappingURL=AppNaviController.js.map
 var app;
 (function (app) {
     var manage;
@@ -4638,3 +4288,228 @@ var app;
         });
     })(manage = app.manage || (app.manage = {}));
 })(app || (app = {}));
+//# sourceMappingURL=ResGroup.js.map
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsBaseController = (function () {
+            function ManageProductDetailsBaseController($location, $scope, $http, $product, $ui) {
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$http = $http;
+                this.$product = $product;
+                this.$ui = $ui;
+                this.id = $location.search().id;
+                var q = this.load();
+                this.$ui.lockFor("加载中, 请稍候", q);
+            }
+            ManageProductDetailsBaseController.prototype.load = function () {
+                var _this = this;
+                var u = "/api/product/";
+                var p = { id: this.id, includes: "res" };
+                return this.$http.get(u, { params: p }).then(function (rsp) {
+                    _this.product = rsp.data;
+                    _this.model = angular.extend({}, _this.product);
+                });
+            };
+            ManageProductDetailsBaseController.prototype.submit = function () {
+                var u = "/api/product/update";
+                var q = this.$http.post(u, this.model);
+                this.$ui.lockFor("正在保存", q);
+            };
+            return ManageProductDetailsBaseController;
+        }());
+        manage.$module.controller("ManageProductDetailsBaseController", ManageProductDetailsBaseController);
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+//# sourceMappingURL=BaseController.js.map
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsIndexController = (function () {
+            function ManageProductDetailsIndexController($location) {
+                this.$location = $location;
+                var id = $location.search().id;
+                $location.url("product/details/base?id=" + id);
+            }
+            return ManageProductDetailsIndexController;
+        }());
+        manage.$module.controller("ManageProductDetailsIndexController", ManageProductDetailsIndexController);
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+//# sourceMappingURL=IndexController.js.map
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsPropertyController = (function () {
+            function ManageProductDetailsPropertyController($location, $scope, $http, $product, $ui) {
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$http = $http;
+                this.$product = $product;
+                this.$ui = $ui;
+                this.id = $location.search().id;
+                this.$ui.lockFor("加载中", this.load());
+            }
+            ManageProductDetailsPropertyController.prototype.load = function () {
+                var _this = this;
+                var u1 = "/api/product";
+                var f1 = { id: this.id };
+                var p1 = this.$http.get("/api/product", { params: f1 }).then(function (rsp) {
+                    _this.product = rsp.data;
+                });
+                var u2 = "/api/product/property";
+                var f2 = { productId: this.id, includes: "res,items" };
+                var p2 = this.$http.get(u2, { params: f2 }).then(function (rsp) {
+                    var r = rsp.data;
+                    _this.props = r.data;
+                });
+                return [p1, p2];
+            };
+            ManageProductDetailsPropertyController.prototype.submit = function () {
+                if (!confirm("确认要保存对型号规格的修改吗?"))
+                    return;
+                this.updateIndexAndData();
+                var u = "/api/product/property/replace-all";
+                var f = { productId: this.id };
+                var q = this.$http.post(u, this.props, { params: f });
+                this.$ui.lockFor("正在保存", q).then(function (r) {
+                    alert("保存成功");
+                });
+            };
+            ManageProductDetailsPropertyController.prototype.initChartProp = function (prop) {
+                prop.xData = prop.xData || "0,10,20,30,40,50,60,70,80,90";
+                if (!prop._xArr)
+                    prop._xArr = prop.xData.split(",");
+            };
+            ManageProductDetailsPropertyController.prototype.initChartItem = function (item) {
+                if (!item._arr)
+                    item._arr = item.data ? item.data.split(",") : [];
+            };
+            /**
+             * updateIndex:
+             *      更新列表的index属性
+             */
+            ManageProductDetailsPropertyController.prototype.updateIndexAndData = function () {
+                _.forEach(this.props, function (prop, i) {
+                    prop.index = i;
+                    if (prop.type == 'chart') {
+                        prop.xData = prop._xArr && prop._xArr.join(',');
+                    }
+                    _.forEach(prop.items || [], function (item, ii) {
+                        item.index = ii;
+                        if (prop.type == 'chart')
+                            item.data = item._arr && item._arr.join(',');
+                    });
+                });
+            };
+            ManageProductDetailsPropertyController.prototype.addProp = function () {
+                this.props.push({ type: "scalar" });
+            };
+            ManageProductDetailsPropertyController.prototype.addItem = function (prop) {
+                prop.items = prop.items || [];
+                prop.items.push({});
+            };
+            ManageProductDetailsPropertyController.prototype.remove = function (it, arr) {
+                var i = arr.indexOf(it);
+                if (i != -1) {
+                    arr.splice(i, 1);
+                }
+            };
+            ManageProductDetailsPropertyController.prototype.swipe = function (it, arr, step) {
+                var i = arr.indexOf(it);
+                if (i != -1) {
+                    var ii = i + step;
+                    if (ii >= 0 && ii < arr.length) {
+                        var tmp = arr[ii];
+                        arr[ii] = arr[i];
+                        arr[i] = tmp;
+                    }
+                }
+            };
+            return ManageProductDetailsPropertyController;
+        }());
+        manage.$module.controller("ManageProductDetailsPropertyController", ManageProductDetailsPropertyController);
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+//# sourceMappingURL=PropertyController.js.map
+var app;
+(function (app) {
+    var manage;
+    (function (manage) {
+        var ManageProductDetailsSpecialController = (function () {
+            function ManageProductDetailsSpecialController($location, $scope, $product, $http, $ui) {
+                this.$location = $location;
+                this.$scope = $scope;
+                this.$product = $product;
+                this.$http = $http;
+                this.$ui = $ui;
+                this.id = $location.search().id;
+                this.$ui.lockFor("加载中", this.load());
+            }
+            ManageProductDetailsSpecialController.prototype.submit = function () {
+                var _this = this;
+                if (confirm("确认要保存对型号规格的修改吗?")) {
+                    // sort
+                    _.forEach(this.specials, function (special, i) {
+                        special.index = i;
+                        _.forEach(special.items || [], function (item, ii) {
+                            item.index = ii;
+                        });
+                    });
+                    var q = this.$product.updateSpecials(this.product.id, this.specials).then(function (r) {
+                        return _this.load();
+                    });
+                    this.$ui.lockFor("正在保存", q).then(function (r) {
+                        alert("保存成功");
+                    });
+                }
+            };
+            ManageProductDetailsSpecialController.prototype.load = function () {
+                var _this = this;
+                var u1 = "/api/product";
+                var f1 = { id: this.id };
+                var p1 = this.$http.get(u1, { params: f1 }).then(function (rsp) {
+                    _this.product = rsp.data;
+                });
+                var u2 = "/api/product/special";
+                var f2 = { productId: this.id, includes: "res,items" };
+                var p2 = this.$http.get(u2, { params: f2 }).then(function (rsp) {
+                    var r = rsp.data;
+                    _this.specials = r.data;
+                });
+                return [p1, p2];
+            };
+            ManageProductDetailsSpecialController.prototype.addSpecial = function () {
+                this.specials.push({});
+            };
+            ManageProductDetailsSpecialController.prototype.addItem = function (special) {
+                special.items = special.items || [];
+                special.items.push({});
+            };
+            ManageProductDetailsSpecialController.prototype.remove = function (it, arr) {
+                var i = arr.indexOf(it);
+                if (i != -1) {
+                    arr.splice(i, 1);
+                }
+            };
+            ManageProductDetailsSpecialController.prototype.swipe = function (it, arr, step) {
+                var i = arr.indexOf(it);
+                if (i != -1) {
+                    var ii = i + step;
+                    if (ii >= 0 && ii < arr.length) {
+                        var tmp = arr[ii];
+                        arr[ii] = arr[i];
+                        arr[i] = tmp;
+                    }
+                }
+            };
+            return ManageProductDetailsSpecialController;
+        }());
+        manage.$module.controller("ManageProductDetailsSpecialController", ManageProductDetailsSpecialController);
+    })(manage = app.manage || (app.manage = {}));
+})(app || (app = {}));
+//# sourceMappingURL=SpecialController.js.map

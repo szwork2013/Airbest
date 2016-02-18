@@ -45,9 +45,13 @@ module app.manage {
         });
          
         table.routes = [
-            { title: "添加产品", path: "/product/create" },
-            { title: "产品中心", path: "/product/details" },
-            { title: "产品中心", path: "/product/" },
+            { path: "/product/details/special" },
+            { path: "/product/details/property" },
+            { path: "/product/details/base" },
+            { path: "/product/details/" },
+
+            { path: "/product/create" },
+            { path: "/product/" },
             { path: "/" }, 
         ];
 

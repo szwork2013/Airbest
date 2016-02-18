@@ -5,3 +5,4 @@ var app;
         services.$module = angular.module("app.services", []);
     })(services = app.services || (app.services = {}));
 })(app || (app = {}));
+//# sourceMappingURL=module.js.map
